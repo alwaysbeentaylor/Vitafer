@@ -2717,14 +2717,14 @@
                             <div class="option-group">
                                 <label>Pakket:</label>
                                 <div class="variant-options">
-                                    <div class="variant-option selected" data-price="49.95">
+                                    <div class="variant-option selected" data-price="49.95" data-shopify-variant-id="10309525831946">
                                         <div class="variant-info">
                                             <h4>1 Fles</h4>
                                             <p>500ml</p>
                                         </div>
                                         <div class="variant-price">€49,95</div>
                                     </div>
-                                    <div class="variant-option" data-price="129.95">
+                                    <div class="variant-option" data-price="129.95" data-shopify-variant-id="VUL_HIER_VARIANT_ID_IN">
                                         <div class="variant-info">
                                             <h4>3 Flessen</h4>
                                             <p>Beste waarde</p>
@@ -3324,21 +3324,23 @@
                 const variantName = variantInfoEl.textContent.trim();
                 const productImageUrl = card.getAttribute('data-image') || '';
                 const productImage = productImageUrl ? `url('${productImageUrl}')` : 'url("")';
+                const shopifyVariantId = variantEl.getAttribute('data-shopify-variant-id');
                 
                 // Add to cart array
                 if (!window.cartItems || !Array.isArray(window.cartItems)) {
                     window.cartItems = [];
                 }
                 
-                for (let i = 0; i < quantity; i++) {
-                    window.cartItems.push({
-                        id: `${productHandle}-${Date.now()}-${i}`,
-                        name: productName,
-                        variant: variantName,
-                        price: selectedPrice,
-                        image: productImage
-                    });
-                }
+                // Add item with quantity
+                window.cartItems.push({
+                    id: `${productHandle}-${Date.now()}`,
+                    name: productName,
+                    variant: variantName,
+                    price: selectedPrice,
+                    image: productImage,
+                    quantity: quantity,
+                    shopifyVariantId: shopifyVariantId || null
+                });
                 
                 // Update cart count
                 const cartCount = document.getElementById('cartCount');
@@ -3446,7 +3448,7 @@
                     }).join('');
                     
                     // Calculate total
-                    const total = window.cartItems.reduce((sum, item) => sum + item.price, 0);
+                    const total = window.cartItems.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
                     if (cartTotalPrice) {
                         cartTotalPrice.textContent = `€${total.toFixed(2)}`;
                     }
@@ -3493,13 +3495,82 @@
             }
         });
         
+        // ===== SHOPIFY INTEGRATION =====
+        const SHOPIFY_STORE = '1u0ui4-02.myshopify.com';
+        
+        async function addToShopifyCart(items) {
+            try {
+                // Group items by variant ID
+                const itemsByVariant = {};
+                items.forEach(item => {
+                    if (!item.shopifyVariantId) {
+                        console.warn('Item missing Shopify variant ID:', item);
+                        return;
+                    }
+                    const variantId = item.shopifyVariantId;
+                    if (!itemsByVariant[variantId]) {
+                        itemsByVariant[variantId] = {
+                            id: variantId,
+                            quantity: 0
+                        };
+                    }
+                    itemsByVariant[variantId].quantity += (item.quantity || 1);
+                });
+
+                // Add items to Shopify cart using Cart API
+                const cartItems = Object.values(itemsByVariant);
+                
+                // Create cart or add to existing cart
+                const response = await fetch(`https://${SHOPIFY_STORE}/cart/add.js`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        items: cartItems
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to add items to Shopify cart');
+                }
+
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error adding to Shopify cart:', error);
+                throw error;
+            }
+        }
+
+        async function redirectToShopifyCheckout() {
+            try {
+                // Add items to Shopify cart
+                await addToShopifyCart(window.cartItems);
+                
+                // Redirect to Shopify checkout
+                window.location.href = `https://${SHOPIFY_STORE}/cart`;
+            } catch (error) {
+                alert('Er is een fout opgetreden bij het toevoegen aan de winkelmand. Probeer het opnieuw.');
+                console.error('Checkout error:', error);
+            }
+        }
+
         // Checkout button
         const cartCheckoutBtn = document.getElementById('cartCheckoutBtn');
         if (cartCheckoutBtn) {
-            cartCheckoutBtn.addEventListener('click', () => {
+            cartCheckoutBtn.addEventListener('click', async () => {
                 if (window.cartItems && window.cartItems.length > 0) {
-                    alert('In Shopify wordt dit gekoppeld aan de checkout pagina.\n\nJe hebt ' + window.cartItems.length + ' item(s) in je winkelmand.');
-                    // In Shopify: window.location.href = '/checkout';
+                    // Show loading state
+                    cartCheckoutBtn.textContent = 'Bezig...';
+                    cartCheckoutBtn.disabled = true;
+                    
+                    try {
+                        await redirectToShopifyCheckout();
+                    } catch (error) {
+                        cartCheckoutBtn.textContent = 'Naar Checkout';
+                        cartCheckoutBtn.disabled = false;
+                    }
                 }
             });
         }
