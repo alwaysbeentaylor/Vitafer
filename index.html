@@ -718,13 +718,8 @@
             width: 100%;
             max-width: 500px;
             height: 600px;
-            cursor: grab;
             user-select: none;
             background: transparent;
-        }
-
-        .product-360-viewer:active {
-            cursor: grabbing;
         }
 
         .product-bottle-3d {
@@ -3111,7 +3106,7 @@
         let floatAnimation = null;
         let hasPlayedIntro = false;
 
-        // Auto-rotate on page load (1x spin)
+        // Auto-rotate on page load (2x spin)
         function playIntroRotation() {
             if (productBottle && !hasPlayedIntro) {
                 hasPlayedIntro = true;
@@ -3124,21 +3119,27 @@
                 // Force reflow to ensure transition applies
                 void productBottle.offsetHeight;
                 
-                // Start rotation
+                // First rotation (360deg)
                 requestAnimationFrame(() => {
                     productBottle.style.transform = 'rotateY(360deg)';
                 });
                 
                 setTimeout(() => {
-                    productBottle.style.transition = 'transform 0.1s ease-out';
-                    productBottle.style.transform = 'rotateY(0deg)';
-                    currentRotation = 0;
-                    introRotationComplete = true;
+                    // Second rotation (another 360deg = 720deg total)
+                    productBottle.style.transition = 'transform 2s cubic-bezier(0.4, 0, 0.2, 1)';
+                    productBottle.style.transform = 'rotateY(720deg)';
                     
-                    // Resume float animation
                     setTimeout(() => {
-                        productBottle.style.animation = 'floatProduct 6s ease-in-out infinite';
-                    }, 200);
+                        productBottle.style.transition = 'transform 0.1s ease-out';
+                        productBottle.style.transform = 'rotateY(0deg)';
+                        currentRotation = 0;
+                        introRotationComplete = true;
+                        
+                        // Resume float animation
+                        setTimeout(() => {
+                            productBottle.style.animation = 'floatProduct 6s ease-in-out infinite';
+                        }, 200);
+                    }, 2000);
                 }, 2000);
             }
         }
@@ -3158,59 +3159,7 @@
             }
         });
 
-        // Improved rotation with better responsiveness
-        product360.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX;
-            productBottle.style.animation = 'none';
-            product360.style.cursor = 'grabbing';
-            e.preventDefault();
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            const delta = e.clientX - startX;
-            currentRotation += delta * 0.8; // Increased sensitivity for smoother rotation
-            productBottle.style.transform = `rotateY(${currentRotation}deg)`;
-            startX = e.clientX;
-        });
-
-        document.addEventListener('mouseup', () => {
-            if (isDragging) {
-                isDragging = false;
-                product360.style.cursor = 'grab';
-                // Resume float animation after a short delay
-                setTimeout(() => {
-                    productBottle.style.animation = 'floatProduct 6s ease-in-out infinite';
-                }, 500);
-            }
-        });
-
-        // Touch support for mobile - improved
-        product360.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            startX = e.touches[0].clientX;
-            productBottle.style.animation = 'none';
-            e.preventDefault();
-        }, { passive: false });
-
-        product360.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const delta = e.touches[0].clientX - startX;
-            currentRotation += delta * 0.8;
-            productBottle.style.transform = `rotateY(${currentRotation}deg)`;
-            startX = e.touches[0].clientX;
-            e.preventDefault();
-        }, { passive: false });
-
-        product360.addEventListener('touchend', () => {
-            if (isDragging) {
-                isDragging = false;
-                setTimeout(() => {
-                    productBottle.style.animation = 'floatProduct 6s ease-in-out infinite';
-                }, 500);
-            }
-        });
+        // Manual rotation disabled - only auto-spin on page load
 
         // ===== ANIMATED COUNTERS =====
         const counters = document.querySelectorAll('.counter');
