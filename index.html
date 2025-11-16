@@ -1551,8 +1551,20 @@
         /* Hide all Shopify cart elements */
         #product-component-1763300599217 .shopify-buy__cart,
         #product-component-1763300599217 .shopify-buy__cart__header,
-        #product-component-1763300599217 .shopify-buy__cart__footer {
+        #product-component-1763300599217 .shopify-buy__cart__footer,
+        .shopify-buy__cart-toggle,
+        .shopify-buy__cart-toggle-wrapper,
+        .shopify-buy__cart-popup {
             display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+
+        /* Ensure product card structure matches others */
+        #product-component-1763300599217 .shopify-buy__product__wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
         }
 
         /* Product description */
