@@ -1,0 +1,58 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.{jpg,jpeg,png,gif,webp,svg,css,js,txt,xml,md}",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/vitafer.html"
+    },
+    {
+      "src": "/vitafer",
+      "dest": "/vitafer.html"
+    },
+    {
+      "src": "/vitafer-premium",
+      "dest": "/vitafer-premium.html"
+    },
+    {
+      "src": "/over-ons",
+      "dest": "/over-ons.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "/contact.html"
+    },
+    {
+      "src": "/privacy",
+      "dest": "/privacy.html"
+    },
+    {
+      "src": "/algemene-voorwaarden",
+      "dest": "/algemene-voorwaarden.html"
+    },
+    {
+      "src": "/retourbeleid",
+      "dest": "/retourbeleid.html"
+    },
+    {
+      "src": "/verzending-levering",
+      "dest": "/verzending-levering.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
+
