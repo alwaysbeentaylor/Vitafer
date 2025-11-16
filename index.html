@@ -4127,66 +4127,131 @@
               }
             },
           }).then(function(component) {
-            // Apply custom styling after component loads
-            setTimeout(function() {
+            // Function to apply styling
+            function applyShopifyStyling() {
               const productNode = document.getElementById('product-component-1763300599217');
-              if (productNode) {
-                // Hide cart toggle
-                const cartToggles = productNode.querySelectorAll('.shopify-buy__cart-toggle, .shopify-buy__cart-toggle-wrapper');
-                cartToggles.forEach(el => {
-                  el.style.display = 'none';
-                  el.style.visibility = 'hidden';
-                });
+              if (!productNode) return;
 
-                // Style the product card
-                const productCard = productNode.querySelector('.shopify-buy__product');
-                if (productCard) {
-                  productCard.style.border = 'none';
-                  productCard.style.padding = '0';
-                  productCard.style.margin = '0';
+              // Hide cart toggle - multiple attempts
+              const cartToggles = productNode.querySelectorAll('.shopify-buy__cart-toggle, .shopify-buy__cart-toggle-wrapper, [class*="cart-toggle"]');
+              cartToggles.forEach(el => {
+                el.style.display = 'none !important';
+                el.style.visibility = 'hidden !important';
+                el.style.opacity = '0 !important';
+                el.setAttribute('style', 'display: none !important; visibility: hidden !important; opacity: 0 !important;');
+              });
+
+              // Hide all cart elements
+              const cartElements = productNode.querySelectorAll('[class*="cart"]');
+              cartElements.forEach(el => {
+                if (!el.closest('.shopify-buy__product')) {
+                  el.style.display = 'none !important';
+                  el.setAttribute('style', 'display: none !important;');
                 }
+              });
 
-                // Style images
-                const images = productNode.querySelectorAll('.shopify-buy__product__media img');
-                images.forEach(img => {
-                  img.style.width = '100%';
-                  img.style.height = 'auto';
-                  img.style.objectFit = 'contain';
-                  img.style.filter = 'drop-shadow(0 10px 20px rgba(201, 169, 97, 0.2))';
-                });
-
-                // Style buttons
-                const buttons = productNode.querySelectorAll('.shopify-buy__btn');
-                buttons.forEach(btn => {
-                  btn.style.background = 'linear-gradient(135deg, #C9A961 0%, #B89A51 100%)';
-                  btn.style.border = 'none';
-                  btn.style.borderRadius = '12px';
-                  btn.style.width = '100%';
-                  btn.style.padding = '0.9rem';
-                  btn.style.fontWeight = '600';
-                  btn.style.color = '#FFFFFF';
-                  btn.style.marginTop = 'auto';
-                });
-
-                // Style selects
-                const selects = productNode.querySelectorAll('.shopify-buy__option-select');
-                selects.forEach(select => {
-                  select.style.border = '2px solid #E0E0E0';
-                  select.style.borderRadius = '12px';
-                  select.style.padding = '0.7rem';
-                  select.style.width = '100%';
-                  select.style.marginBottom = '1rem';
-                });
-
-                // Style quantity inputs
-                const quantityInputs = productNode.querySelectorAll('.shopify-buy__quantity');
-                quantityInputs.forEach(input => {
-                  input.style.border = '2px solid #E0E0E0';
-                  input.style.borderRadius = '12px';
-                  input.style.padding = '0.5rem';
-                });
+              // Style the product card
+              const productCard = productNode.querySelector('.shopify-buy__product');
+              if (productCard) {
+                productCard.style.border = 'none';
+                productCard.style.padding = '0';
+                productCard.style.margin = '0';
+                productCard.style.maxWidth = '100%';
               }
-            }, 500);
+
+              // Style images
+              const images = productNode.querySelectorAll('.shopify-buy__product__media img, img');
+              images.forEach(img => {
+                img.style.width = '100%';
+                img.style.height = 'auto';
+                img.style.maxHeight = '300px';
+                img.style.objectFit = 'contain';
+                img.style.filter = 'drop-shadow(0 10px 20px rgba(201, 169, 97, 0.2))';
+              });
+
+              // Style image wrapper
+              const imageWrapper = productNode.querySelector('.shopify-buy__product__media-wrapper, .shopify-buy__product__media');
+              if (imageWrapper) {
+                imageWrapper.style.height = '300px';
+                imageWrapper.style.minHeight = '250px';
+                imageWrapper.style.display = 'flex';
+                imageWrapper.style.alignItems = 'center';
+                imageWrapper.style.justifyContent = 'center';
+                imageWrapper.style.marginBottom = '1.5rem';
+                imageWrapper.style.borderRadius = '15px';
+              }
+
+              // Style buttons
+              const buttons = productNode.querySelectorAll('.shopify-buy__btn, button[class*="shopify"]');
+              buttons.forEach(btn => {
+                btn.style.background = 'linear-gradient(135deg, #C9A961 0%, #B89A51 100%)';
+                btn.style.border = 'none';
+                btn.style.borderRadius = '12px';
+                btn.style.width = '100%';
+                btn.style.padding = '0.9rem';
+                btn.style.fontWeight = '600';
+                btn.style.color = '#FFFFFF';
+                btn.style.marginTop = 'auto';
+                btn.style.cursor = 'pointer';
+              });
+
+              // Style selects
+              const selects = productNode.querySelectorAll('.shopify-buy__option-select, select');
+              selects.forEach(select => {
+                select.style.border = '2px solid #E0E0E0';
+                select.style.borderRadius = '12px';
+                select.style.padding = '0.7rem';
+                select.style.width = '100%';
+                select.style.marginBottom = '1rem';
+                select.style.fontSize = '0.9rem';
+              });
+
+              // Style quantity inputs
+              const quantityInputs = productNode.querySelectorAll('.shopify-buy__quantity, input[type="number"]');
+              quantityInputs.forEach(input => {
+                input.style.border = '2px solid #E0E0E0';
+                input.style.borderRadius = '12px';
+                input.style.padding = '0.5rem';
+              });
+
+              // Style title
+              const title = productNode.querySelector('.shopify-buy__product__title, h1, h2, h3');
+              if (title && title.textContent.trim()) {
+                title.style.fontFamily = "'Playfair Display', serif";
+                title.style.fontSize = '1.5rem';
+                title.style.fontWeight = '700';
+                title.style.color = '#2C2C2C';
+                title.style.marginBottom = '0.5rem';
+              }
+
+              // Style price
+              const price = productNode.querySelector('.shopify-buy__product__price, [class*="price"]');
+              if (price) {
+                price.style.color = '#C9A961';
+                price.style.fontWeight = '700';
+                price.style.fontSize = '1.6rem';
+                price.style.marginBottom = '1rem';
+              }
+            }
+
+            // Apply immediately and on intervals
+            applyShopifyStyling();
+            setTimeout(applyShopifyStyling, 500);
+            setTimeout(applyShopifyStyling, 1000);
+            setTimeout(applyShopifyStyling, 2000);
+
+            // Use MutationObserver to watch for changes
+            const productNode = document.getElementById('product-component-1763300599217');
+            if (productNode) {
+              const observer = new MutationObserver(function(mutations) {
+                applyShopifyStyling();
+              });
+              observer.observe(productNode, {
+                childList: true,
+                subtree: true,
+                attributes: true
+              });
+            }
           });
         });
       }
