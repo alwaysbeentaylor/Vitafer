@@ -717,9 +717,150 @@
                 padding: 2rem;
             }
         }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border: 2px solid var(--gold);
+            background: transparent;
+            color: var(--text-dark);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: var(--gold-light);
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+            
+            .lang-btn {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* Subtle Social Proof Notification */
+        .social-proof-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 350px;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateX(-120%);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        }
+
+        .social-proof-notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .social-proof-notification.hide {
+            opacity: 0;
+            transform: translateX(-120%);
+        }
+
+        .notification-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .notification-action {
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+
+        .notification-time {
+            font-size: 11px;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .social-proof-notification {
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                max-width: none;
+                padding: 12px 15px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="nl" title="Nederlands">🇳🇱 NL</button>
+        <button class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
+        <button class="lang-btn" data-lang="fr" title="Français">🇫🇷 FR</button>
+    </div>
+
+    <!-- Social Proof Notification (Subtle) -->
+    <div class="social-proof-notification" id="socialProof">
+        <div class="notification-avatar">👤</div>
+        <div class="notification-content">
+            <div class="notification-name"></div>
+            <div class="notification-action"></div>
+            <div class="notification-time"></div>
+        </div>
+    </div>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-particles">
@@ -736,23 +877,23 @@
         
         <div class="hero-content">
             <div class="hero-text">
-                <h1>
+                <h1 data-i18n="heroTitle">
                     Leef <span class="gold-accent">Vitaal</span><br>
                     Elke Dag
                 </h1>
-                <p>
+                <p data-i18n="heroDesc">
                     Vitafer is jouw dagelijkse gouden formule voor onvermoeibare energie, 
                     mentale scherpte en volledig herstel. Premium samengesteld voor 
                     mensen die het maximale uit hun dag willen halen.
                 </p>
                 <div class="cta-group">
-                    <a href="#vitafer-product-section" class="btn-primary">Bestel Vitafer</a>
-                    <a href="#benefits" class="btn-secondary">Bekijk voordelen</a>
+                    <a href="#vitafer-product-section" class="btn-primary" data-i18n="orderNow">Bestel Vitafer</a>
+                    <a href="#benefits" class="btn-secondary" data-i18n="viewBenefits">Bekijk voordelen</a>
                 </div>
                 <div class="trust-row">
-                    <span class="trust-item">Gratis verzending vanaf €40</span>
-                    <span class="trust-item">Vandaag besteld, morgen in huis</span>
-                    <span class="trust-item">30 dagen geld terug</span>
+                    <span class="trust-item" data-i18n="freeShipping">Gratis verzending vanaf €40</span>
+                    <span class="trust-item" data-i18n="fastDelivery">Vandaag besteld, morgen in huis</span>
+                    <span class="trust-item" data-i18n="moneyBack">30 dagen geld terug</span>
                 </div>
             </div>
             <div class="hero-visual">
@@ -763,36 +904,36 @@
 
     <!-- Benefits Section -->
     <section id="benefits">
-        <h2 class="section-title">Waarom <span class="gold-accent">Vitafer?</span></h2>
+        <h2 class="section-title" data-i18n="benefitsTitle">Waarom <span class="gold-accent">Vitafer?</span></h2>
         <div class="benefits-grid">
             <div class="benefit-card">
                 <div class="benefit-icon">⚡</div>
-                <h3>Natuurlijke Energie</h3>
-                <p>
+                <h3 data-i18n="energyTitle">Natuurlijke Energie</h3>
+                <p data-i18n="energyDesc">
                     Start je dag met blijvende energie zonder de crash. 
                     Vitafer ondersteunt je natuurlijke energieproductie van binnenuit.
                 </p>
             </div>
             <div class="benefit-card">
                 <div class="benefit-icon">🎯</div>
-                <h3>Mentale Scherpte</h3>
-                <p>
+                <h3 data-i18n="focusTitle">Mentale Scherpte</h3>
+                <p data-i18n="focusDesc">
                     Blijf gefocust en helder, zelfs tijdens intensieve werkdagen. 
                     Optimaliseer je mentale prestaties.
                 </p>
             </div>
             <div class="benefit-card">
                 <div class="benefit-icon">🔄</div>
-                <h3>Sneller Herstel</h3>
-                <p>
+                <h3 data-i18n="recoveryTitle">Sneller Herstel</h3>
+                <p data-i18n="recoveryDesc">
                     Ondersteun je lichaam bij herstel na inspanning. 
                     Voel je sneller fris en klaar voor nieuwe uitdagingen.
                 </p>
             </div>
             <div class="benefit-card">
                 <div class="benefit-icon">🛡️</div>
-                <h3>Sterke Afweer</h3>
-                <p>
+                <h3 data-i18n="immunityTitle">Sterke Afweer</h3>
+                <p data-i18n="immunityDesc">
                     Versterk je immuunsysteem en weerstand. 
                     Blijf vitaal en veerkrachtig, het hele jaar door.
                 </p>
@@ -802,7 +943,7 @@
 
     <!-- Timeline Section -->
     <section id="timeline">
-        <h2 class="section-title">Een Dag met <span class="gold-accent">Vitafer</span></h2>
+        <h2 class="section-title" data-i18n="timelineTitle">Een Dag met <span class="gold-accent">Vitafer</span></h2>
         <div class="timeline-container">
             <div class="timeline-item">
                 <div class="timeline-icon">🌅</div>
@@ -875,7 +1016,7 @@
 
     <!-- Testimonials Section -->
     <section id="testimonials">
-        <h2 class="section-title">Wat Anderen <span class="gold-accent">Ervaren</span></h2>
+        <h2 class="section-title" data-i18n="testimonialsTitle">Wat Onze Klanten <span class="gold-accent">Zeggen</span></h2>
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
@@ -945,7 +1086,7 @@
 
     <!-- FAQ Section -->
     <section id="faq">
-        <h2 class="section-title">Veelgestelde <span class="gold-accent">Vragen</span></h2>
+        <h2 class="section-title" data-i18n="faqTitle">Veelgestelde <span class="gold-accent">Vragen</span></h2>
         <div class="faq-container">
             <div class="faq-item">
                 <button class="faq-question">
@@ -1055,17 +1196,17 @@
             <div class="footer-section">
                 <h4>Klantenservice</h4>
                 <ul>
-                    <li><a href="#faq">Veelgestelde Vragen</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#verzending">Verzending & Retour</a></li>
+                    <li><a href="#faq" data-i18n="faq">Veelgestelde Vragen</a></li>
+                    <li><a href="#contact" data-i18n="contact">Contact</a></li>
+                    <li><a href="#verzending" data-i18n="shipping">Verzending & Retour</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Informatie</h4>
                 <ul>
-                    <li><a href="#over">Over Vitafer</a></li>
-                    <li><a href="#privacy">Privacybeleid</a></li>
-                    <li><a href="#voorwaarden">Algemene Voorwaarden</a></li>
+                    <li><a href="#over" data-i18n="aboutUs">Over Vitafer</a></li>
+                    <li><a href="#privacy" data-i18n="privacy">Privacybeleid</a></li>
+                    <li><a href="#voorwaarden" data-i18n="terms">Algemene Voorwaarden</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1222,6 +1363,292 @@
                 });
             }
         })();
+    </script>
+
+    <script>
+        // ===== INTERNATIONALIZATION (i18n) =====
+        const translations = {
+            nl: {
+                // Hero
+                heroTitle: "Leef <span class=\"gold-accent\">Vitaal</span><br>Elke Dag",
+                heroSubtitle: "Vitafer - Premium Energie, Focus & Herstel",
+                heroDesc: "Vitafer is jouw dagelijkse gouden formule voor onvermoeibare energie, mentale scherpte en volledig herstel. Premium samengesteld voor mensen die het maximale uit hun dag willen halen.",
+                orderNow: "Bestel Vitafer",
+                viewBenefits: "Bekijk voordelen",
+                
+                // Trust badges
+                freeShipping: "Gratis verzending vanaf €40",
+                fastDelivery: "Vandaag besteld, morgen in huis",
+                moneyBack: "30 dagen geld terug",
+                
+                // Benefits
+                benefitsTitle: "Waarom <span class=\"gold-accent\">Vitafer?</span>",
+                energyTitle: "Natuurlijke Energie",
+                energyDesc: "Start je dag met blijvende energie zonder de crash. Vitafer ondersteunt je natuurlijke energieproductie van binnenuit.",
+                focusTitle: "Mentale Scherpte",
+                focusDesc: "Blijf gefocust en helder, zelfs tijdens intensieve werkdagen. Optimaliseer je mentale prestaties.",
+                recoveryTitle: "Sneller Herstel",
+                recoveryDesc: "Ondersteun je lichaam bij herstel na inspanning. Voel je sneller fris en klaar voor nieuwe uitdagingen.",
+                immunityTitle: "Sterke Afweer",
+                immunityDesc: "Versterk je immuunsysteem en weerstand. Blijf vitaal en veerkrachtig, het hele jaar door.",
+                
+                // Timeline
+                timelineTitle: "Een Dag met <span class=\"gold-accent\">Vitafer</span>",
+                
+                // Products
+                productsTitle: "Kies Jouw <span class=\"gold-accent\">Vitafer</span>",
+                addToCart: "Voeg Toe",
+                month: "Maand",
+                months: "Maanden",
+                bottle: "Fles",
+                bottles: "Flessen",
+                sachets: "Sachets",
+                
+                // Testimonials
+                testimonialsTitle: "Wat Onze Klanten <span class=\"gold-accent\">Zeggen</span>",
+                
+                // FAQ
+                faqTitle: "Veelgestelde <span class=\"gold-accent\">Vragen</span>",
+                
+                // Footer
+                contact: "Contact",
+                aboutUs: "Over Vitafer",
+                privacy: "Privacybeleid",
+                terms: "Algemene Voorwaarden",
+                shipping: "Verzending & Retour",
+                faq: "Veelgestelde Vragen"
+            },
+            en: {
+                // Hero
+                heroTitle: "Live <span class=\"gold-accent\">Vital</span><br>Every Day",
+                heroSubtitle: "Vitafer - Premium Energy, Focus & Recovery",
+                heroDesc: "Vitafer is your daily golden formula for tireless energy, mental clarity and complete recovery. Premium composed for people who want to get the maximum out of their day.",
+                orderNow: "Order Vitafer",
+                viewBenefits: "View Benefits",
+                
+                // Trust badges
+                freeShipping: "Free shipping from €40",
+                fastDelivery: "Order today, delivered tomorrow",
+                moneyBack: "30 days money back",
+                
+                // Benefits
+                benefitsTitle: "Why <span class=\"gold-accent\">Vitafer?</span>",
+                energyTitle: "Natural Energy",
+                energyDesc: "Start your day with lasting energy without the crash. Vitafer supports your natural energy production from within.",
+                focusTitle: "Mental Clarity",
+                focusDesc: "Stay focused and clear, even during intensive workdays. Optimize your mental performance.",
+                recoveryTitle: "Faster Recovery",
+                recoveryDesc: "Support your body in recovery after exertion. Feel fresher and ready for new challenges faster.",
+                immunityTitle: "Strong Immunity",
+                immunityDesc: "Strengthen your immune system and resistance. Stay vital and resilient, all year round.",
+                
+                // Timeline
+                timelineTitle: "A Day with <span class=\"gold-accent\">Vitafer</span>",
+                
+                // Products
+                productsTitle: "Choose Your <span class=\"gold-accent\">Vitafer</span>",
+                addToCart: "Add to Cart",
+                month: "Month",
+                months: "Months",
+                bottle: "Bottle",
+                bottles: "Bottles",
+                sachets: "Sachets",
+                
+                // Testimonials
+                testimonialsTitle: "What Our Customers <span class=\"gold-accent\">Say</span>",
+                
+                // FAQ
+                faqTitle: "Frequently Asked <span class=\"gold-accent\">Questions</span>",
+                
+                // Footer
+                contact: "Contact",
+                aboutUs: "About Vitafer",
+                privacy: "Privacy Policy",
+                terms: "Terms & Conditions",
+                shipping: "Shipping & Returns",
+                faq: "FAQ"
+            },
+            fr: {
+                // Hero
+                heroTitle: "Vivez <span class=\"gold-accent\">Vital</span><br>Chaque Jour",
+                heroSubtitle: "Vitafer - Énergie, Concentration & Récupération Premium",
+                heroDesc: "Vitafer est votre formule dorée quotidienne pour une énergie inépuisable, une clarté mentale et une récupération complète. Composé premium pour les personnes qui veulent tirer le maximum de leur journée.",
+                orderNow: "Commander Vitafer",
+                viewBenefits: "Voir les Avantages",
+                
+                // Trust badges
+                freeShipping: "Livraison gratuite à partir de 40€",
+                fastDelivery: "Commandé aujourd'hui, livré demain",
+                moneyBack: "30 jours satisfait ou remboursé",
+                
+                // Benefits
+                benefitsTitle: "Pourquoi <span class=\"gold-accent\">Vitafer?</span>",
+                energyTitle: "Énergie Naturelle",
+                energyDesc: "Commencez votre journée avec une énergie durable sans crash. Vitafer soutient votre production d'énergie naturelle de l'intérieur.",
+                focusTitle: "Clarté Mentale",
+                focusDesc: "Restez concentré et clair, même pendant les journées de travail intensives. Optimisez vos performances mentales.",
+                recoveryTitle: "Récupération Rapide",
+                recoveryDesc: "Soutenez votre corps dans la récupération après l'effort. Ressentez-vous plus frais et prêt pour de nouveaux défis plus rapidement.",
+                immunityTitle: "Immunité Forte",
+                immunityDesc: "Renforcez votre système immunitaire et votre résistance. Restez vital et résilient, toute l'année.",
+                
+                // Timeline
+                timelineTitle: "Une Journée avec <span class=\"gold-accent\">Vitafer</span>",
+                
+                // Products
+                productsTitle: "Choisissez Votre <span class=\"gold-accent\">Vitafer</span>",
+                addToCart: "Ajouter au Panier",
+                month: "Mois",
+                months: "Mois",
+                bottle: "Bouteille",
+                bottles: "Bouteilles",
+                sachets: "Sachets",
+                
+                // Testimonials
+                testimonialsTitle: "Ce Que Disent Nos Clients <span class=\"gold-accent\">Clients</span>",
+                
+                // FAQ
+                faqTitle: "Questions Fréquemment <span class=\"gold-accent\">Posées</span>",
+                
+                // Footer
+                contact: "Contact",
+                aboutUs: "À Propos de Vitafer",
+                privacy: "Politique de Confidentialité",
+                terms: "Conditions Générales",
+                shipping: "Livraison & Retours",
+                faq: "FAQ"
+            }
+        };
+
+        // Initialize language from localStorage or default to 'nl'
+        let currentLang = localStorage.getItem('language') || 'nl';
+
+        // Apply translations
+        function applyTranslations(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            document.documentElement.setAttribute('lang', lang);
+            
+            const trans = translations[lang];
+            
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (trans[key]) {
+                    if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3') {
+                        el.innerHTML = trans[key];
+                    } else {
+                        el.textContent = trans[key];
+                    }
+                }
+            });
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+        }
+
+        // Language switcher event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    applyTranslations(lang);
+                });
+            });
+            
+            // Apply on page load
+            applyTranslations(currentLang);
+        });
+
+        // ===== SUBTLE SOCIAL PROOF NOTIFICATIONS =====
+        const socialProofData = {
+            nl: {
+                names: ['Emma uit Rotterdam', 'Lars uit Amsterdam', 'Sophie uit Utrecht', 'Daan uit Den Haag', 'Lisa uit Eindhoven', 'Tom uit Groningen', 'Nina uit Maastricht', 'Max uit Tilburg'],
+                actions: [
+                    'heeft zojuist besteld',
+                    'bekijkt deze pagina',
+                    'heeft toegevoegd aan winkelwagen',
+                    'bestelde 5 minuten geleden'
+                ],
+                times: ['Zojuist', '2 min geleden', '5 min geleden', 'Een moment geleden'],
+                avatars: ['👤', '👩', '👨', '🧑', '👱‍♀️', '👱‍♂️']
+            },
+            en: {
+                names: ['Emma from Rotterdam', 'Lars from Amsterdam', 'Sophie from Utrecht', 'Daan from The Hague', 'Lisa from Eindhoven', 'Tom from Groningen', 'Nina from Maastricht', 'Max from Tilburg'],
+                actions: [
+                    'just ordered',
+                    'is viewing this page',
+                    'added to cart',
+                    'ordered 5 minutes ago'
+                ],
+                times: ['Just now', '2 min ago', '5 min ago', 'A moment ago'],
+                avatars: ['👤', '👩', '👨', '🧑', '👱‍♀️', '👱‍♂️']
+            },
+            fr: {
+                names: ['Emma de Rotterdam', 'Lars d\'Amsterdam', 'Sophie d\'Utrecht', 'Daan de La Haye', 'Lisa d\'Eindhoven', 'Tom de Groningue', 'Nina de Maastricht', 'Max de Tilburg'],
+                actions: [
+                    'vient de commander',
+                    'consulte cette page',
+                    'a ajouté au panier',
+                    'a commandé il y a 5 minutes'
+                ],
+                times: ['À l\'instant', 'Il y a 2 min', 'Il y a 5 min', 'Il y a un moment'],
+                avatars: ['👤', '👩', '👨', '🧑', '👱‍♀️', '👱‍♂️']
+            }
+        };
+
+        let notificationTimeout;
+        let hideTimeout;
+
+        function showSocialProof() {
+            const notification = document.getElementById('socialProof');
+            if (!notification) return;
+            
+            // Get current language
+            const lang = currentLang || 'nl';
+            const data = socialProofData[lang];
+            
+            // Random data
+            const name = data.names[Math.floor(Math.random() * data.names.length)];
+            const action = data.actions[Math.floor(Math.random() * data.actions.length)];
+            const time = data.times[Math.floor(Math.random() * data.times.length)];
+            const avatar = data.avatars[Math.floor(Math.random() * data.avatars.length)];
+            
+            // Update content
+            notification.querySelector('.notification-avatar').textContent = avatar;
+            notification.querySelector('.notification-name').textContent = name;
+            notification.querySelector('.notification-action').textContent = action;
+            notification.querySelector('.notification-time').textContent = time;
+            
+            // Show notification
+            notification.classList.remove('hide');
+            notification.classList.add('show');
+            
+            // Hide after 4 seconds
+            hideTimeout = setTimeout(() => {
+                notification.classList.remove('show');
+                notification.classList.add('hide');
+            }, 4000);
+            
+            // Schedule next notification (between 15-30 seconds)
+            const nextDelay = 15000 + Math.random() * 15000; // 15-30 sec
+            notificationTimeout = setTimeout(showSocialProof, nextDelay);
+        }
+
+        // Start notifications after user has been on page for 5 seconds
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                showSocialProof();
+            }, 5000);
+        });
+
+        // Clean up on page unload
+        window.addEventListener('beforeunload', () => {
+            clearTimeout(notificationTimeout);
+            clearTimeout(hideTimeout);
+        });
     </script>
 </body>
 </html>
