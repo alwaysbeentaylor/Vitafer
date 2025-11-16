@@ -1,0 +1,13 @@
+# robots.txt voor VFL Gold
+
+# Block all bots (bot-proof zoals gewenst)
+User-agent: *
+Disallow: /
+
+# Sitemap locatie (voor wanneer indexering wordt ingeschakeld)
+# Sitemap: https://www.vflgold.nl/sitemap.xml
+
+# Allow search console verification
+Allow: /google*.html
+Allow: /bing*.html
+

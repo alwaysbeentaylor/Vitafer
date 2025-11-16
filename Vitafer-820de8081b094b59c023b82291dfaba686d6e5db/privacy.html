@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacybeleid — VFL Gold</title>
+    <meta name="description" content="Privacybeleid van VFL Gold. Lees hoe wij omgaan met jouw persoonlijke gegevens en privacy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A961;
+            --gold-dark: #B8944E;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --grey-light: #F5F5F5;
+            --grey: #E0E0E0;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #757575;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+            line-height: 1.8;
+            padding-top: 100px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.3);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%);
+            padding: 5rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-section p {
+            color: var(--text-medium);
+            margin-bottom: 1.2rem;
+        }
+
+        .content-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section li {
+            color: var(--text-medium);
+            margin-bottom: 0.8rem;
+        }
+
+        footer {
+            background: var(--text-dark);
+            color: var(--grey-light);
+            padding: 5rem 5% 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--grey);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--grey);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="vitafer-premium.html" class="logo">VFL<span>Gold</span></a>
+        <div class="nav-links">
+            <a href="vitafer-premium.html#benefits">Voordelen</a>
+            <a href="vitafer-premium.html#formula">Formule</a>
+            <a href="vitafer-premium.html#testimonials">Reviews</a>
+            <a href="vitafer-premium.html#product" class="nav-cta">Bestel Nu</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Privacybeleid</h1>
+        <p>Laatst bijgewerkt: januari 2025</p>
+    </div>
+
+    <!-- CONTENT SECTION -->
+    <div class="content-section">
+        <h2>1. Inleiding</h2>
+        <p>VFL Gold respecteert jouw privacy en zet zich in voor de bescherming van jouw persoonlijke gegevens. Dit privacybeleid legt uit hoe wij omgaan met de informatie die wij verzamelen wanneer je onze website bezoekt of onze producten bestelt.</p>
+
+        <h2>2. Gegevens die wij verzamelen</h2>
+        <h3>2.1 Persoonlijke gegevens</h3>
+        <p>Wij verzamelen de volgende persoonlijke gegevens:</p>
+        <ul>
+            <li>Naam en contactgegevens (e-mailadres, telefoonnummer, adres)</li>
+            <li>Betalingsgegevens (via beveiligde betaalproviders)</li>
+            <li>Bestelgeschiedenis en voorkeuren</li>
+            <li>Communicatiegeschiedenis met onze klantenservice</li>
+        </ul>
+
+        <h3>2.2 Automatisch verzamelde gegevens</h3>
+        <p>Wanneer je onze website bezoekt, verzamelen wij automatisch bepaalde informatie:</p>
+        <ul>
+            <li>IP-adres en browsergegevens</li>
+            <li>Bezoekgedrag en voorkeuren</li>
+            <li>Cookies en vergelijkbare technologieën</li>
+        </ul>
+
+        <h2>3. Doeleinden van gegevensverwerking</h2>
+        <p>Wij gebruiken jouw gegevens voor de volgende doeleinden:</p>
+        <ul>
+            <li>Het verwerken en verzenden van je bestellingen</li>
+            <li>Het verbeteren van onze producten en diensten</li>
+            <li>Het versturen van marketingcommunicatie (met jouw toestemming)</li>
+            <li>Het voldoen aan wettelijke verplichtingen</li>
+            <li>Het voorkomen van fraude en misbruik</li>
+        </ul>
+
+        <h2>4. Delen van gegevens</h2>
+        <p>Wij delen jouw persoonlijke gegevens alleen met:</p>
+        <ul>
+            <li>Betrouwbare serviceproviders (zoals verzendbedrijven en betaalproviders)</li>
+            <li>Wanneer dit wettelijk verplicht is</li>
+            <li>Met jouw uitdrukkelijke toestemming</li>
+        </ul>
+        <p>Wij verkopen nooit jouw persoonlijke gegevens aan derden.</p>
+
+        <h2>5. Beveiliging</h2>
+        <p>Wij nemen passende technische en organisatorische maatregelen om jouw persoonlijke gegevens te beschermen tegen ongeautoriseerde toegang, verlies of vernietiging. Alle betalingen worden verwerkt via beveiligde SSL-verbindingen.</p>
+
+        <h2>6. Jouw rechten</h2>
+        <p>Je hebt het recht om:</p>
+        <ul>
+            <li>Inzage te krijgen in jouw persoonlijke gegevens</li>
+            <li>Onjuiste gegevens te laten corrigeren</li>
+            <li>Jouw gegevens te laten verwijderen</li>
+            <li>Bezwaar te maken tegen bepaalde verwerkingen</li>
+            <li>Jouw gegevens te laten overdragen</li>
+        </ul>
+        <p>Voor het uitoefenen van deze rechten kun je contact met ons opnemen via <a href="mailto:info@vflgold.nl">info@vflgold.nl</a>.</p>
+
+        <h2>7. Cookies</h2>
+        <p>Onze website gebruikt cookies om je gebruikerservaring te verbeteren. Je kunt cookies uitschakelen via de instellingen van je browser, maar dit kan de functionaliteit van de website beperken.</p>
+
+        <h2>8. Wijzigingen</h2>
+        <p>Wij behouden ons het recht voor om dit privacybeleid te wijzigen. Wijzigingen worden op deze pagina gepubliceerd met een bijgewerkte datum.</p>
+
+        <h2>9. Contact</h2>
+        <p>Voor vragen over dit privacybeleid of over de verwerking van jouw gegevens, kun je contact met ons opnemen:</p>
+        <p>
+            <strong>VFL Gold</strong><br>
+            E-mail: <a href="mailto:info@vflgold.nl">info@vflgold.nl</a><br>
+            Telefoon: <a href="tel:+31645868328">+31 6 45 86 83 28</a>
+        </p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>VFL Gold</h3>
+                <p>Premium vitaliteit in elke druppel. Ontwikkeld voor mensen die weigeren compromissen te sluiten als het gaat om hun gezondheid.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="vitafer-premium.html#benefits">Voordelen</a></li>
+                    <li><a href="vitafer-premium.html#formula">Formule</a></li>
+                    <li><a href="vitafer-premium.html#testimonials">Reviews</a></li>
+                    <li><a href="vitafer-premium.html#product">Bestellen</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="vitafer-premium.html#faq">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="verzending-levering.html">Verzending</a></li>
+                    <li><a href="retourbeleid.html">Retourneren</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Juridisch</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacybeleid</a></li>
+                    <li><a href="algemene-voorwaarden.html">Algemene Voorwaarden</a></li>
+                    <li><a href="contact.html">Over VFL Gold</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 VFL Gold. All rights reserved. Made with 💛 in Nederland.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '1rem 5%';
+                navbar.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '1.5rem 5%';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
+

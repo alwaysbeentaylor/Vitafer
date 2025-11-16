@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage / Landing Page -->
+    <url>
+        <loc>https://www.vflgold.nl/</loc>
+        <lastmod>2025-01-16</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Contact Pagina -->
+    <url>
+        <loc>https://www.vflgold.nl/contact.html</loc>
+        <lastmod>2025-01-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Privacybeleid -->
+    <url>
+        <loc>https://www.vflgold.nl/privacy.html</loc>
+        <lastmod>2025-01-16</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Algemene Voorwaarden -->
+    <url>
+        <loc>https://www.vflgold.nl/algemene-voorwaarden.html</loc>
+        <lastmod>2025-01-16</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Verzending & Levering -->
+    <url>
+        <loc>https://www.vflgold.nl/verzending-levering.html</loc>
+        <lastmod>2025-01-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Retourbeleid -->
+    <url>
+        <loc>https://www.vflgold.nl/retourbeleid.html</loc>
+        <lastmod>2025-01-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+</urlset>
+

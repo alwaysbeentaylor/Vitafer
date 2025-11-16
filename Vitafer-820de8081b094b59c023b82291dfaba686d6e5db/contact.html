@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — VFL Gold</title>
+    <meta name="description" content="Neem contact op met VFL Gold. We helpen je graag verder met vragen over onze producten, bestellingen of service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A961;
+            --gold-dark: #B8944E;
+            --gold-light: #E5D5A8;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --grey-light: #F5F5F5;
+            --grey: #E0E0E0;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #757575;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding-top: 100px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.3);
+        }
+
+        /* CONTENT SECTION */
+        .page-header {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%);
+            padding: 5rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--off-white);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--grey);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--off-white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .info-card p {
+            color: var(--text-medium);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text-dark);
+            color: var(--grey-light);
+            padding: 5rem 5% 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--grey);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--grey);
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="vitafer-premium.html" class="logo">VFL<span>Gold</span></a>
+        <div class="nav-links">
+            <a href="vitafer-premium.html#benefits">Voordelen</a>
+            <a href="vitafer-premium.html#formula">Formule</a>
+            <a href="vitafer-premium.html#testimonials">Reviews</a>
+            <a href="vitafer-premium.html#product" class="nav-cta">Bestel Nu</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Contact</h1>
+        <p>Heb je vragen over VFL Gold? We helpen je graag verder. Neem contact met ons op via onderstaande gegevens of vul het contactformulier in.</p>
+    </div>
+
+    <!-- CONTENT SECTION -->
+    <div class="content-section">
+        <div class="contact-grid">
+            <!-- CONTACT FORM -->
+            <div class="contact-form">
+                <h2>Stuur ons een bericht</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Naam *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mailadres *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefoonnummer</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Onderwerp *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Bericht *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Verstuur bericht</button>
+                </form>
+            </div>
+
+            <!-- CONTACT INFO -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>📧 E-mail</h3>
+                    <p>Voor vragen over bestellingen, producten of service:</p>
+                    <a href="mailto:info@vflgold.nl">info@vflgold.nl</a>
+                </div>
+
+                <div class="info-card">
+                    <h3>📞 Telefoon</h3>
+                    <p>Bereikbaar op werkdagen van 09:00 - 18:00:</p>
+                    <a href="tel:+31645868328">+31 6 45 86 83 28</a>
+                </div>
+
+                <div class="info-card">
+                    <h3>⏰ Openingstijden</h3>
+                    <p><strong>Maandag - Vrijdag:</strong> 09:00 - 18:00</p>
+                    <p><strong>Zaterdag:</strong> 12:00 - 17:00</p>
+                    <p><strong>Zon- en Feestdagen:</strong> Gesloten</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📦 Verzending</h3>
+                    <p>Voor vragen over verzending en levering, bekijk onze <a href="verzending-levering.html">verzendinformatie</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>VFL Gold</h3>
+                <p>Premium vitaliteit in elke druppel. Ontwikkeld voor mensen die weigeren compromissen te sluiten als het gaat om hun gezondheid.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="vitafer-premium.html#benefits">Voordelen</a></li>
+                    <li><a href="vitafer-premium.html#formula">Formule</a></li>
+                    <li><a href="vitafer-premium.html#testimonials">Reviews</a></li>
+                    <li><a href="vitafer-premium.html#product">Bestellen</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="vitafer-premium.html#faq">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="verzending-levering.html">Verzending</a></li>
+                    <li><a href="retourbeleid.html">Retourneren</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Juridisch</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacybeleid</a></li>
+                    <li><a href="algemene-voorwaarden.html">Algemene Voorwaarden</a></li>
+                    <li><a href="contact.html">Over VFL Gold</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 VFL Gold. All rights reserved. Made with 💛 in Nederland.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Bedankt voor je bericht! We nemen zo spoedig mogelijk contact met je op.');
+            this.reset();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '1rem 5%';
+                navbar.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '1.5rem 5%';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
+
