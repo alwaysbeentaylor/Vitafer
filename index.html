@@ -1419,47 +1419,168 @@
             margin-top: auto;
         }
 
-        /* Shopify Buy Button Styling */
+        /* Shopify Buy Button Styling - Match with other product cards */
         .shopify-product-wrapper {
             display: flex;
             flex-direction: column;
             min-height: 100%;
+            background: var(--white);
+            border: 2px solid var(--grey-light);
+            border-radius: 25px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .shopify-product-wrapper:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(201, 169, 97, 0.2);
         }
 
         #product-component-1763300599217 {
             width: 100%;
             flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Override Shopify Buy Button styles to match site design */
+        /* Hide Shopify cart toggle */
+        #product-component-1763300599217 .shopify-buy__cart-toggle,
+        #product-component-1763300599217 .shopify-buy__cart-toggle-wrapper {
+            display: none !important;
+        }
+
+        /* Product container styling */
         #product-component-1763300599217 .shopify-buy__product {
             border: none !important;
-            border-radius: 25px !important;
+            border-radius: 0 !important;
             padding: 0 !important;
+            margin: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
         }
 
+        /* Product image wrapper - match other cards */
+        #product-component-1763300599217 .shopify-buy__product__media-wrapper {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            background: transparent;
+        }
+
+        #product-component-1763300599217 .shopify-buy__product__media img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            filter: drop-shadow(0 10px 20px rgba(201, 169, 97, 0.2));
+        }
+
+        /* Product title */
         #product-component-1763300599217 .shopify-buy__product__title {
             font-family: 'Playfair Display', serif !important;
             font-size: 1.5rem !important;
+            font-weight: 700 !important;
             color: var(--text-dark) !important;
             margin-bottom: 0.5rem !important;
+            line-height: 1.2 !important;
         }
 
+        /* Product price */
         #product-component-1763300599217 .shopify-buy__product__price {
             color: var(--gold) !important;
             font-weight: 700 !important;
+            font-size: 1.6rem !important;
+            margin-bottom: 1rem !important;
         }
 
+        /* Variant selector styling */
+        #product-component-1763300599217 .shopify-buy__option-select-wrapper,
+        #product-component-1763300599217 .shopify-buy__option-select {
+            width: 100% !important;
+            margin-bottom: 1rem !important;
+        }
+
+        #product-component-1763300599217 .shopify-buy__option-select {
+            border: 2px solid var(--grey-light) !important;
+            border-radius: 12px !important;
+            padding: 0.7rem !important;
+            font-size: 0.9rem !important;
+            background: var(--white) !important;
+            color: var(--text-dark) !important;
+        }
+
+        /* Quantity selector */
+        #product-component-1763300599217 .shopify-buy__quantity-wrapper {
+            margin-bottom: 1rem !important;
+        }
+
+        #product-component-1763300599217 .shopify-buy__quantity {
+            border: 2px solid var(--grey-light) !important;
+            border-radius: 12px !important;
+            padding: 0.5rem !important;
+        }
+
+        /* Button styling - match other cards */
         #product-component-1763300599217 .shopify-buy__btn {
             background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
+            border: none !important;
             border-radius: 12px !important;
             font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            padding: 0.9rem !important;
+            width: 100% !important;
+            color: var(--white) !important;
             transition: all 0.3s ease !important;
+            margin-top: auto !important;
+            cursor: pointer !important;
         }
 
         #product-component-1763300599217 .shopify-buy__btn:hover {
             transform: translateY(-2px) !important;
             box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4) !important;
+        }
+
+        /* Hide all Shopify cart elements */
+        #product-component-1763300599217 .shopify-buy__cart,
+        #product-component-1763300599217 .shopify-buy__cart__header,
+        #product-component-1763300599217 .shopify-buy__cart__footer {
+            display: none !important;
+        }
+
+        /* Product description */
+        #product-component-1763300599217 .shopify-buy__product__description {
+            font-size: 0.85rem !important;
+            color: var(--text-medium) !important;
+            line-height: 1.5 !important;
+            margin-bottom: 1rem !important;
+        }
+
+        @media (max-width: 1024px) {
+            #product-component-1763300599217 .shopify-buy__product__media-wrapper {
+                height: 250px;
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .shopify-product-wrapper {
+                padding: 1rem;
+            }
+            #product-component-1763300599217 .shopify-buy__product__media-wrapper {
+                height: 200px;
+                min-height: 200px;
+            }
+            #product-component-1763300599217 .shopify-buy__product__title {
+                font-size: 1.3rem !important;
+            }
         }
 
 
@@ -3940,12 +4061,25 @@
               },
               "option": {},
               "cart": {
-                "text": {
-                  "total": "Subtotal",
-                  "button": "Checkout"
-                }
+                "popup": false,
+                "startOpen": false
               },
-              "toggle": {}
+              "toggle": {
+                "cart": {
+                  "contents": {
+                    "count": false,
+                    "title": false,
+                    "footer": false
+                  },
+                  "styles": {
+                    "toggle": {
+                      "background-color": "transparent",
+                      "font-size": "0px",
+                      "padding": "0px"
+                    }
+                  }
+                }
+              }
             },
           });
         });
