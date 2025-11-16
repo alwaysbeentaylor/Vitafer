@@ -3497,8 +3497,9 @@
         
         // ===== SHOPIFY INTEGRATION =====
         const SHOPIFY_STORE = '1u0ui4-02.myshopify.com';
+        const STOREFRONT_TOKEN = '37153f313a6160328614346cd6ea3813';
         
-        function buildShopifyCartURL(items) {
+        async function createShopifyCheckout(items) {
             // Filter items that have Shopify variant IDs
             const validItems = items.filter(item => 
                 item.shopifyVariantId && 
@@ -3506,7 +3507,7 @@
             );
             
             if (validItems.length === 0) {
-                throw new Error('Geen items met geldige Shopify variant IDs gevonden. Voeg data-shopify-variant-id toe aan je product varianten.');
+                throw new Error('Geen items met geldige Shopify variant IDs gevonden.');
             }
 
             // Group items by variant ID and sum quantities
@@ -3519,24 +3520,75 @@
                 itemsByVariant[variantId] += (item.quantity || 1);
             });
 
-            // Build Shopify cart URL with variant IDs and quantities
-            // Format: https://store.myshopify.com/cart/[variant_id]:[quantity],[variant_id]:[quantity]
-            const cartItems = Object.entries(itemsByVariant)
-                .map(([variantId, quantity]) => `${variantId}:${quantity}`)
-                .join(',');
+            // Build line items for GraphQL
+            const lineItems = Object.entries(itemsByVariant)
+                .map(([variantId, quantity]) => {
+                    // Convert numeric ID to GraphQL GID format
+                    const gid = `gid://shopify/ProductVariant/${variantId}`;
+                    return `{ variantId: "${gid}", quantity: ${quantity} }`;
+                })
+                .join(', ');
 
-            return `https://${SHOPIFY_STORE}/cart/${cartItems}`;
+            // GraphQL mutation to create checkout
+            const mutation = `
+                mutation {
+                    checkoutCreate(input: {
+                        lineItems: [${lineItems}]
+                    }) {
+                        checkout {
+                            id
+                            webUrl
+                        }
+                        checkoutUserErrors {
+                            code
+                            field
+                            message
+                        }
+                    }
+                }
+            `;
+
+            console.log('Creating Shopify checkout with items:', itemsByVariant);
+
+            const response = await fetch(`https://${SHOPIFY_STORE}/api/2024-01/graphql.json`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN
+                },
+                body: JSON.stringify({ query: mutation })
+            });
+
+            if (!response.ok) {
+                throw new Error(`Shopify API error: ${response.status} ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            
+            if (data.errors) {
+                console.error('GraphQL errors:', data.errors);
+                throw new Error(data.errors[0].message);
+            }
+
+            if (data.data.checkoutCreate.checkoutUserErrors.length > 0) {
+                const error = data.data.checkoutCreate.checkoutUserErrors[0];
+                console.error('Checkout error:', error);
+                throw new Error(error.message);
+            }
+
+            return data.data.checkoutCreate.checkout;
         }
 
         async function redirectToShopifyCheckout() {
             try {
-                // Build cart URL with all items
-                const cartURL = buildShopifyCartURL(window.cartItems);
+                // Create checkout via Storefront API
+                const checkout = await createShopifyCheckout(window.cartItems);
                 
-                console.log('Redirecting to Shopify cart:', cartURL);
+                console.log('Checkout created:', checkout);
+                console.log('Redirecting to:', checkout.webUrl);
                 
-                // Redirect directly to Shopify cart (no CORS issues)
-                window.location.href = cartURL;
+                // Redirect to Shopify checkout page
+                window.location.href = checkout.webUrl;
             } catch (error) {
                 const errorMessage = error.message || 'Er is een fout opgetreden bij het toevoegen aan de winkelmand.';
                 alert(errorMessage + '\n\nControleer de console voor meer details.');
