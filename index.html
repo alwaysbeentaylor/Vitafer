@@ -825,7 +825,7 @@
                 transform: translateX(-50%) scale(1);
             }
             50% { 
-                opacity: 1;
+            opacity: 1;
                 transform: translateX(-50%) scale(1.1);
             }
         }
@@ -1418,183 +1418,6 @@
             font-size: 0.95rem;
             margin-top: auto;
         }
-
-        /* Shopify Buy Button Styling - Match with other product cards */
-        .shopify-product-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100%;
-            background: var(--white);
-            border: 2px solid var(--grey-light);
-            border-radius: 25px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .shopify-product-wrapper:hover {
-            border-color: var(--gold);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(201, 169, 97, 0.2);
-        }
-
-        #product-component-1763300599217 {
-            width: 100%;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Hide Shopify cart toggle */
-        #product-component-1763300599217 .shopify-buy__cart-toggle,
-        #product-component-1763300599217 .shopify-buy__cart-toggle-wrapper {
-            display: none !important;
-        }
-
-        /* Product container styling */
-        #product-component-1763300599217 .shopify-buy__product {
-            border: none !important;
-            border-radius: 0 !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            display: flex !important;
-            flex-direction: column !important;
-            height: 100% !important;
-        }
-
-        /* Product image wrapper - match other cards */
-        #product-component-1763300599217 .shopify-buy__product__media-wrapper {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-            border-radius: 15px;
-            background: transparent;
-        }
-
-        #product-component-1763300599217 .shopify-buy__product__media img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: contain !important;
-            filter: drop-shadow(0 10px 20px rgba(201, 169, 97, 0.2));
-        }
-
-        /* Product title */
-        #product-component-1763300599217 .shopify-buy__product__title {
-            font-family: 'Playfair Display', serif !important;
-            font-size: 1.5rem !important;
-            font-weight: 700 !important;
-            color: var(--text-dark) !important;
-            margin-bottom: 0.5rem !important;
-            line-height: 1.2 !important;
-        }
-
-        /* Product price */
-        #product-component-1763300599217 .shopify-buy__product__price {
-            color: var(--gold) !important;
-            font-weight: 700 !important;
-            font-size: 1.6rem !important;
-            margin-bottom: 1rem !important;
-        }
-
-        /* Variant selector styling */
-        #product-component-1763300599217 .shopify-buy__option-select-wrapper,
-        #product-component-1763300599217 .shopify-buy__option-select {
-            width: 100% !important;
-            margin-bottom: 1rem !important;
-        }
-
-        #product-component-1763300599217 .shopify-buy__option-select {
-            border: 2px solid var(--grey-light) !important;
-            border-radius: 12px !important;
-            padding: 0.7rem !important;
-            font-size: 0.9rem !important;
-            background: var(--white) !important;
-            color: var(--text-dark) !important;
-        }
-
-        /* Quantity selector */
-        #product-component-1763300599217 .shopify-buy__quantity-wrapper {
-            margin-bottom: 1rem !important;
-        }
-
-        #product-component-1763300599217 .shopify-buy__quantity {
-            border: 2px solid var(--grey-light) !important;
-            border-radius: 12px !important;
-            padding: 0.5rem !important;
-        }
-
-        /* Button styling - match other cards */
-        #product-component-1763300599217 .shopify-buy__btn {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
-            border: none !important;
-            border-radius: 12px !important;
-            font-weight: 600 !important;
-            font-size: 0.95rem !important;
-            padding: 0.9rem !important;
-            width: 100% !important;
-            color: var(--white) !important;
-            transition: all 0.3s ease !important;
-            margin-top: auto !important;
-            cursor: pointer !important;
-        }
-
-        #product-component-1763300599217 .shopify-buy__btn:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4) !important;
-        }
-
-        /* Hide all Shopify cart elements */
-        #product-component-1763300599217 .shopify-buy__cart,
-        #product-component-1763300599217 .shopify-buy__cart__header,
-        #product-component-1763300599217 .shopify-buy__cart__footer,
-        .shopify-buy__cart-toggle,
-        .shopify-buy__cart-toggle-wrapper,
-        .shopify-buy__cart-popup {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-        }
-
-        /* Ensure product card structure matches others */
-        #product-component-1763300599217 .shopify-buy__product__wrapper {
-            display: flex !important;
-            flex-direction: column !important;
-            height: 100% !important;
-        }
-
-        /* Product description */
-        #product-component-1763300599217 .shopify-buy__product__description {
-            font-size: 0.85rem !important;
-            color: var(--text-medium) !important;
-            line-height: 1.5 !important;
-            margin-bottom: 1rem !important;
-        }
-
-        @media (max-width: 1024px) {
-            #product-component-1763300599217 .shopify-buy__product__media-wrapper {
-                height: 250px;
-                min-height: 250px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .shopify-product-wrapper {
-                padding: 1rem;
-            }
-            #product-component-1763300599217 .shopify-buy__product__media-wrapper {
-                height: 200px;
-                min-height: 200px;
-            }
-            #product-component-1763300599217 .shopify-buy__product__title {
-                font-size: 1.3rem !important;
-            }
-        }
-
 
         @media (max-width: 1024px) {
             .product-grid {
@@ -2568,13 +2391,13 @@
         </div>
         <div class="gold-gradient gradient-1"></div>
         <div class="gold-gradient gradient-2"></div>
-
+        
         <div class="hero-content">
             <div class="hero-badge" data-i18n="hero.badge">✨ Join 10.000+ vitale mensen</div>
-            <h1>
+                <h1>
                 <span data-i18n="hero.title1">Voel de Kracht van</span>
                 <span class="gold-text" data-i18n="hero.title2">Pure Vitaliteit</span>
-            </h1>
+                </h1>
             <p class="hero-subtitle" data-i18n="hero.subtitle">
                 VFL Gold is meer dan een supplement. Het is jouw dagelijkse 
                 ritueel voor onvermoeibare energie, laser-scherpe focus en 
@@ -2583,13 +2406,13 @@
             <div class="hero-cta">
                 <a href="#product" class="btn btn-primary" data-i18n="hero.cta1">Claim Jouw VFL Gold</a>
                 <a href="#benefits" class="btn btn-secondary" data-i18n="hero.cta2">Bekijk de Magie</a>
-            </div>
+                </div>
             <div class="trust-badges">
                 <span class="trust-badge" data-i18n="hero.badge1">Gratis verzending €40+</span>
                 <span class="trust-badge" data-i18n="hero.badge2">Morgen in huis</span>
                 <span class="trust-badge" data-i18n="hero.badge3">30 dagen garantie</span>
+                </div>
             </div>
-        </div>
 
         <!-- 360° PRODUCT VIEWER -->
         <div class="product-360-container">
@@ -2736,7 +2559,7 @@
                 <div class="ingredient-explorer">
                     <div class="ingredient-node" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
                         <span>VFL Gold CORE</span>
-                    </div>
+            </div>
                     <div class="ingredient-node" style="top: 10%; left: 50%; transform: translate(-50%, -50%);">
                         <span>IJzer</span>
                     </div>
@@ -2815,7 +2638,7 @@
                     <div class="author-info">
                         <h4>Sophie Vermeulen</h4>
                         <p>CEO, Amsterdam</p>
-                    </div>
+            </div>
                 </div>
             </div>
 
@@ -2831,7 +2654,7 @@
                     <div class="author-info">
                         <h4>Mark de Jong</h4>
                         <p>Pro Atleet, Rotterdam</p>
-                    </div>
+            </div>
                 </div>
             </div>
 
@@ -2866,9 +2689,63 @@
             <div class="sachet-particle" style="top: 10%; left: 5%; animation-delay: 1s;"></div>
             <div class="sachet-particle" style="top: 50%; right: 8%; animation-delay: 3s;"></div>
             <div class="product-grid">
-                <!-- Product 1: VFL Gold Bottle (500ml) - Shopify Buy Button -->
-                <div class="product-card shopify-product-wrapper">
-                    <div id="product-component-1763300599217"></div>
+                <!-- Product 1: VFL Gold 500ml (eigen cart) -->
+                <div class="product-card" data-product="bottle" data-image="vitafer-bottle-360.png">
+                    <div class="product-image-wrapper">
+                        <div class="product-image" data-bg="vitafer-bottle-360.png" style="background-image: url('vitafer-bottle-360.png');"></div>
+                        <div class="product-badge">🔥 Bestseller</div>
+                    </div>
+                <div class="product-info">
+                        <h2>VFL Gold 500ml</h2>
+                        <div class="product-rating">
+                            <span class="rating-stars">★★★★★</span>
+                            <span class="rating-text">(1.247 reviews)</span>
+                        </div>
+                    <p class="product-description">
+                            Vloeibare premium multivitamine formule (500ml) voor dagelijkse energie,
+                            focus en herstel. Maximale opname, minimale moeite.
+                        </p>
+                        <div class="price-section">
+                            <div class="price-main">
+                                <span class="current-price">€49,95</span>
+                                <span class="old-price">€59,95</span>
+                                <span class="savings">Bespaar €10</span>
+                            </div>
+                            <p class="price-per">€1,67 per 10ml</p>
+                        </div>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Pakket:</label>
+                                <div class="variant-options">
+                                    <div class="variant-option selected" data-price="49.95">
+                                        <div class="variant-info">
+                                            <h4>1 Fles</h4>
+                                            <p>500ml</p>
+                                        </div>
+                                        <div class="variant-price">€49,95</div>
+                                    </div>
+                                    <div class="variant-option" data-price="129.95">
+                                        <div class="variant-info">
+                                            <h4>3 Flessen</h4>
+                                            <p>Beste waarde</p>
+                                        </div>
+                                        <div class="variant-price">€129,95</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="option-group">
+                                <label>Aantal:</label>
+                                <div class="quantity-selector">
+                                    <button class="quantity-btn">−</button>
+                                    <span class="quantity-value">1</span>
+                                    <button class="quantity-btn">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-to-cart-btn">
+                            🛒 Voeg Toe — €49,95
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Product 2: Biofel -->
@@ -2877,13 +2754,13 @@
                         <div class="product-image" data-bg="images.jpg" style="background-image: url('images.jpg');"></div>
                         <div class="product-badge">✨ Nieuw</div>
                     </div>
-                    <div class="product-info">
+                <div class="product-info">
                         <h2>Biofel</h2>
                         <div class="product-rating">
                             <span class="rating-stars">★★★★★</span>
                             <span class="rating-text">(534 reviews)</span>
                         </div>
-                        <p class="product-description">
+                    <p class="product-description">
                             Natuurlijke bio-actieve blend voor dagelijkse energie en balans. 
                             Geselecteerde ingrediënten voor optimale vitaliteit.
                         </p>
@@ -2895,7 +2772,7 @@
                             </div>
                             <p class="price-per">€1,17 per dag</p>
                         </div>
-                        <div class="product-options">
+                    <div class="product-options">
                             <div class="option-group">
                                 <label>Pakket:</label>
                                 <div class="variant-options">
@@ -2988,13 +2865,13 @@
                         </button>
                     </div>
                 </div>
-            </div>
-
+                    </div>
+                    
             <div class="product-guarantees" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--grey);">
                 <div class="guarantee-item">
                     <div class="guarantee-icon">🚚</div>
                     <p>Gratis verzending<br>vanaf €40</p>
-                </div>
+                    </div>
                 <div class="guarantee-item">
                     <div class="guarantee-icon">⚡</div>
                     <p>Morgen in huis<br>bij bestelling voor 22:00</p>
@@ -3031,7 +2908,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Voor wie is VFL Gold geschikt?</span>
@@ -3047,7 +2924,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Is VFL Gold veilig en getest?</span>
@@ -3062,7 +2939,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Wanneer merk ik resultaat?</span>
@@ -3077,7 +2954,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Wat zijn de verzend- en betaalopties?</span>
@@ -3092,7 +2969,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Wat als ik niet tevreden ben?</span>
@@ -3156,7 +3033,7 @@
                     <li><a href="retourbeleid.html">Retourbeleid</a></li>
                 </ul>
             </div>
-        </div>
+            </div>
 
         <div class="footer-bottom">
             <p>&copy; 2025 VFL Gold. All rights reserved. Made with 💛 in Nederland.</p>
@@ -3497,7 +3374,7 @@
         // Initialize product cards when DOM is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initProductCards);
-        } else {
+                } else {
             initProductCards();
         }
 
@@ -3537,7 +3414,7 @@
                         </div>
                     `;
                     if (cartFooter) cartFooter.style.display = 'none';
-                } else {
+            } else {
                     // Ensure cartItems is an array
                     if (!Array.isArray(window.cartItems)) {
                         window.cartItems = [];
@@ -3994,269 +3871,6 @@
                 lazyBgObserver.observe(el);
             });
         }
-    </script>
-
-    <!-- Shopify Buy Button Script for VFL Gold Bottle (500ml) -->
-    <script type="text/javascript">
-    /*<![CDATA[*/
-    (function () {
-      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-      if (window.ShopifyBuy) {
-        if (window.ShopifyBuy.UI) {
-          ShopifyBuyInit();
-        } else {
-          loadScript();
-        }
-      } else {
-        loadScript();
-      }
-      function loadScript() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = scriptURL;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-        script.onload = ShopifyBuyInit;
-      }
-      function ShopifyBuyInit() {
-        var client = ShopifyBuy.buildClient({
-          domain: '1u0ui4-02.myshopify.com',
-          storefrontAccessToken: '37153f313a6160328614346cd6ea3813',
-        });
-        ShopifyBuy.UI.onReady(client).then(function (ui) {
-          ui.createComponent('product', {
-            id: '10309525831946',
-            node: document.getElementById('product-component-1763300599217'),
-            moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
-            options: {
-              "product": {
-                "contents": {
-                  "img": true,
-                  "imgWithCarousel": false,
-                  "title": true,
-                  "variantTitle": false,
-                  "price": true,
-                  "description": true,
-                  "buttonWithQuantity": true,
-                  "quantity": true
-                },
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "100%",
-                      "margin-left": "0px",
-                      "margin-bottom": "0px"
-                    }
-                  },
-                  "button": {
-                    "background-color": "#C9A961",
-                    ":hover": {
-                      "background-color": "#B89A51"
-                    },
-                    "border-radius": "12px",
-                    "padding": "0.9rem",
-                    "font-weight": "600"
-                  },
-                  "title": {
-                    "font-family": "'Playfair Display', serif",
-                    "font-size": "1.5rem",
-                    "color": "#2C2C2C"
-                  },
-                  "price": {
-                    "font-size": "1.6rem",
-                    "color": "#C9A961",
-                    "font-weight": "700"
-                  },
-                  "description": {
-                    "font-size": "0.85rem",
-                    "color": "#5A5A5A"
-                  }
-                },
-                "text": {
-                  "button": "Add to cart"
-                }
-              },
-              "productSet": {
-                "styles": {
-                  "products": {
-                    "@media (min-width: 601px)": {
-                      "margin-left": "-20px"
-                    }
-                  }
-                }
-              },
-              "modalProduct": {
-                "contents": {
-                  "img": false,
-                  "imgWithCarousel": true,
-                  "button": false,
-                  "buttonWithQuantity": true
-                },
-                "styles": {
-                  "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "100%",
-                      "margin-left": "0px",
-                      "margin-bottom": "0px"
-                    }
-                  }
-                },
-                "text": {
-                  "button": "Add to cart"
-                }
-              },
-              "option": {},
-              "cart": {
-                "popup": false,
-                "startOpen": false
-              },
-              "toggle": {
-                "cart": {
-                  "contents": {
-                    "count": false,
-                    "title": false,
-                    "footer": false
-                  },
-                  "styles": {
-                    "toggle": {
-                      "background-color": "transparent",
-                      "font-size": "0px",
-                      "padding": "0px"
-                    }
-                  }
-                }
-              }
-            },
-          }).then(function(component) {
-            // Function to apply styling
-            function applyShopifyStyling() {
-              const productNode = document.getElementById('product-component-1763300599217');
-              if (!productNode) return;
-
-              // Hide cart toggle - multiple attempts
-              const cartToggles = productNode.querySelectorAll('.shopify-buy__cart-toggle, .shopify-buy__cart-toggle-wrapper, [class*="cart-toggle"]');
-              cartToggles.forEach(el => {
-                el.style.display = 'none !important';
-                el.style.visibility = 'hidden !important';
-                el.style.opacity = '0 !important';
-                el.setAttribute('style', 'display: none !important; visibility: hidden !important; opacity: 0 !important;');
-              });
-
-              // Hide all cart elements
-              const cartElements = productNode.querySelectorAll('[class*="cart"]');
-              cartElements.forEach(el => {
-                if (!el.closest('.shopify-buy__product')) {
-                  el.style.display = 'none !important';
-                  el.setAttribute('style', 'display: none !important;');
-                }
-              });
-
-              // Style the product card
-              const productCard = productNode.querySelector('.shopify-buy__product');
-              if (productCard) {
-                productCard.style.border = 'none';
-                productCard.style.padding = '0';
-                productCard.style.margin = '0';
-                productCard.style.maxWidth = '100%';
-              }
-
-              // Style images
-              const images = productNode.querySelectorAll('.shopify-buy__product__media img, img');
-              images.forEach(img => {
-                img.style.width = '100%';
-                img.style.height = 'auto';
-                img.style.maxHeight = '300px';
-                img.style.objectFit = 'contain';
-                img.style.filter = 'drop-shadow(0 10px 20px rgba(201, 169, 97, 0.2))';
-              });
-
-              // Style image wrapper
-              const imageWrapper = productNode.querySelector('.shopify-buy__product__media-wrapper, .shopify-buy__product__media');
-              if (imageWrapper) {
-                imageWrapper.style.height = '300px';
-                imageWrapper.style.minHeight = '250px';
-                imageWrapper.style.display = 'flex';
-                imageWrapper.style.alignItems = 'center';
-                imageWrapper.style.justifyContent = 'center';
-                imageWrapper.style.marginBottom = '1.5rem';
-                imageWrapper.style.borderRadius = '15px';
-              }
-
-              // Style buttons
-              const buttons = productNode.querySelectorAll('.shopify-buy__btn, button[class*="shopify"]');
-              buttons.forEach(btn => {
-                btn.style.background = 'linear-gradient(135deg, #C9A961 0%, #B89A51 100%)';
-                btn.style.border = 'none';
-                btn.style.borderRadius = '12px';
-                btn.style.width = '100%';
-                btn.style.padding = '0.9rem';
-                btn.style.fontWeight = '600';
-                btn.style.color = '#FFFFFF';
-                btn.style.marginTop = 'auto';
-                btn.style.cursor = 'pointer';
-              });
-
-              // Style selects
-              const selects = productNode.querySelectorAll('.shopify-buy__option-select, select');
-              selects.forEach(select => {
-                select.style.border = '2px solid #E0E0E0';
-                select.style.borderRadius = '12px';
-                select.style.padding = '0.7rem';
-                select.style.width = '100%';
-                select.style.marginBottom = '1rem';
-                select.style.fontSize = '0.9rem';
-              });
-
-              // Style quantity inputs
-              const quantityInputs = productNode.querySelectorAll('.shopify-buy__quantity, input[type="number"]');
-              quantityInputs.forEach(input => {
-                input.style.border = '2px solid #E0E0E0';
-                input.style.borderRadius = '12px';
-                input.style.padding = '0.5rem';
-              });
-
-              // Style title
-              const title = productNode.querySelector('.shopify-buy__product__title, h1, h2, h3');
-              if (title && title.textContent.trim()) {
-                title.style.fontFamily = "'Playfair Display', serif";
-                title.style.fontSize = '1.5rem';
-                title.style.fontWeight = '700';
-                title.style.color = '#2C2C2C';
-                title.style.marginBottom = '0.5rem';
-              }
-
-              // Style price
-              const price = productNode.querySelector('.shopify-buy__product__price, [class*="price"]');
-              if (price) {
-                price.style.color = '#C9A961';
-                price.style.fontWeight = '700';
-                price.style.fontSize = '1.6rem';
-                price.style.marginBottom = '1rem';
-              }
-            }
-
-            // Apply immediately and on intervals
-            applyShopifyStyling();
-            setTimeout(applyShopifyStyling, 500);
-            setTimeout(applyShopifyStyling, 1000);
-            setTimeout(applyShopifyStyling, 2000);
-
-            // Use MutationObserver to watch for changes
-            const productNode = document.getElementById('product-component-1763300599217');
-            if (productNode) {
-              const observer = new MutationObserver(function(mutations) {
-                applyShopifyStyling();
-              });
-              observer.observe(productNode, {
-                childList: true,
-                subtree: true,
-                attributes: true
-              });
-            }
-          });
-        });
-      }
-    })();
-    /*]]>*/
     </script>
 
 </body>
