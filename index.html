@@ -2281,12 +2281,12 @@
         /* Subtle Language Switcher */
         .lang-switcher {
             position: fixed;
-            top: 15px;
-            left: 15px;
+            top: 90px;
+            right: 20px;
             z-index: 10001;
             display: flex;
             gap: 4px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
             padding: 4px;
             border-radius: 20px;
@@ -2318,8 +2318,8 @@
 
         @media (max-width: 768px) {
             .lang-switcher {
-                top: 10px;
-                left: 10px;
+                top: 75px;
+                right: 15px;
                 gap: 3px;
                 padding: 3px;
             }
@@ -2351,13 +2351,13 @@
     <nav class="navbar">
         <div class="logo">VFL<span>Gold</span></div>
         <div class="nav-links">
-            <a href="#benefits">Voordelen</a>
-            <a href="#formula">Formule</a>
-            <a href="#testimonials">Reviews</a>
-            <a href="#faq">FAQ</a>
-            <a href="#product" class="nav-cta">Bestel Nu</a>
+            <a href="#benefits" data-i18n="nav.benefits">Voordelen</a>
+            <a href="#formula" data-i18n="nav.formula">Formule</a>
+            <a href="#testimonials" data-i18n="nav.reviews">Reviews</a>
+            <a href="#faq" data-i18n="nav.faq">FAQ</a>
+            <a href="#product" class="nav-cta" data-i18n="nav.order">Bestel Nu</a>
             <div style="position: relative;">
-                <a href="#product" class="cart-icon-btn" id="cartBtn" title="Winkelmand">
+                <a href="#product" class="cart-icon-btn" id="cartBtn" data-i18n-title="cart.title" title="Winkelmand">
                     🛒
                     <span class="cart-count" id="cartCount" style="display: none;">0</span>
                 </a>
@@ -2365,21 +2365,21 @@
                 <!-- CART DROPDOWN -->
                 <div class="cart-dropdown" id="cartDropdown">
                     <div class="cart-dropdown-header">
-                        <h3>Winkelmand</h3>
+                        <h3 data-i18n="cart.title">Winkelmand</h3>
                         <button class="cart-close-btn" id="cartCloseBtn">×</button>
                     </div>
                     <div class="cart-items" id="cartItems">
                         <div class="cart-empty">
                             <div class="cart-empty-icon">🛒</div>
-                            <p>Je winkelmand is leeg</p>
+                            <p data-i18n="cart.empty">Je winkelmand is leeg</p>
                         </div>
                     </div>
                     <div class="cart-footer" id="cartFooter" style="display: none;">
                         <div class="cart-total">
-                            <span class="cart-total-label">Totaal:</span>
+                            <span class="cart-total-label" data-i18n="cart.total">Totaal:</span>
                             <span class="cart-total-price" id="cartTotalPrice">€0,00</span>
                         </div>
-                        <button class="cart-checkout-btn" id="cartCheckoutBtn">Naar Checkout</button>
+                        <button class="cart-checkout-btn" id="cartCheckoutBtn" data-i18n="cart.checkout">Naar Checkout</button>
                     </div>
                 </div>
             </div>
@@ -2399,24 +2399,24 @@
         <div class="gold-gradient gradient-2"></div>
 
         <div class="hero-content">
-            <div class="hero-badge">✨ Join 10.000+ vitale mensen</div>
+            <div class="hero-badge" data-i18n="hero.badge">✨ Join 10.000+ vitale mensen</div>
             <h1>
-                Voel de Kracht van
-                <span class="gold-text">Pure Vitaliteit</span>
+                <span data-i18n="hero.title1">Voel de Kracht van</span>
+                <span class="gold-text" data-i18n="hero.title2">Pure Vitaliteit</span>
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
                 VFL Gold is meer dan een supplement. Het is jouw dagelijkse 
                 ritueel voor onvermoeibare energie, laser-scherpe focus en 
                 razendsnel herstel. Wetenschappelijk bewezen. Luxe verpakt.
             </p>
             <div class="hero-cta">
-                <a href="#product" class="btn btn-primary">Claim Jouw VFL Gold</a>
-                <a href="#benefits" class="btn btn-secondary">Bekijk de Magie</a>
+                <a href="#product" class="btn btn-primary" data-i18n="hero.cta1">Claim Jouw VFL Gold</a>
+                <a href="#benefits" class="btn btn-secondary" data-i18n="hero.cta2">Bekijk de Magie</a>
             </div>
             <div class="trust-badges">
-                <span class="trust-badge">Gratis verzending €40+</span>
-                <span class="trust-badge">Morgen in huis</span>
-                <span class="trust-badge">30 dagen garantie</span>
+                <span class="trust-badge" data-i18n="hero.badge1">Gratis verzending €40+</span>
+                <span class="trust-badge" data-i18n="hero.badge2">Morgen in huis</span>
+                <span class="trust-badge" data-i18n="hero.badge3">30 dagen garantie</span>
             </div>
         </div>
 
@@ -3049,8 +3049,8 @@
     <!-- STICKY BUY BAR -->
     <div class="sticky-buy-bar" id="stickyBar">
         <div class="sticky-content">
-            <span class="sticky-text">Kies je VFL Gold pakket</span>
-            <a href="#product" class="btn btn-primary">Bestel Nu</a>
+            <span class="sticky-text" data-i18n="sticky.text">Kies je VFL Gold pakket</span>
+            <a href="#product" class="btn btn-primary" data-i18n="sticky.order">Bestel Nu</a>
         </div>
     </div>
 
@@ -3667,6 +3667,76 @@
             return templates[randint(0,templates.length-1)]();
         }
 
+        // ===== FULL WEBSITE TRANSLATIONS =====
+        const translations = {
+            nl: {
+                nav: { benefits: 'Voordelen', formula: 'Formule', reviews: 'Reviews', faq: 'FAQ', order: 'Bestel Nu' },
+                cart: { title: 'Winkelmand', empty: 'Je winkelmand is leeg', total: 'Totaal:', checkout: 'Naar Checkout' },
+                hero: {
+                    badge: '✨ Join 10.000+ vitale mensen',
+                    title1: 'Voel de Kracht van',
+                    title2: 'Pure Vitaliteit',
+                    subtitle: 'VFL Gold is meer dan een supplement. Het is jouw dagelijkse ritueel voor onvermoeibare energie, laser-scherpe focus en razendsnel herstel. Wetenschappelijk bewezen. Luxe verpakt.',
+                    cta1: 'Claim Jouw VFL Gold',
+                    cta2: 'Bekijk de Magie',
+                    badge1: 'Gratis verzending €40+',
+                    badge2: 'Morgen in huis',
+                    badge3: '30 dagen garantie'
+                },
+                sticky: { text: 'Kies je VFL Gold pakket', order: 'Bestel Nu' }
+            },
+            en: {
+                nav: { benefits: 'Benefits', formula: 'Formula', reviews: 'Reviews', faq: 'FAQ', order: 'Order Now' },
+                cart: { title: 'Cart', empty: 'Your cart is empty', total: 'Total:', checkout: 'Go to Checkout' },
+                hero: {
+                    badge: '✨ Join 10,000+ vibrant people',
+                    title1: 'Feel the Power of',
+                    title2: 'Pure Vitality',
+                    subtitle: 'VFL Gold is more than a supplement. It\'s your daily ritual for tireless energy, laser-sharp focus and lightning-fast recovery. Scientifically proven. Luxuriously packaged.',
+                    cta1: 'Claim Your VFL Gold',
+                    cta2: 'See the Magic',
+                    badge1: 'Free shipping €40+',
+                    badge2: 'Tomorrow at home',
+                    badge3: '30 day guarantee'
+                },
+                sticky: { text: 'Choose your VFL Gold package', order: 'Order Now' }
+            },
+            fr: {
+                nav: { benefits: 'Avantages', formula: 'Formule', reviews: 'Avis', faq: 'FAQ', order: 'Commander' },
+                cart: { title: 'Panier', empty: 'Votre panier est vide', total: 'Total:', checkout: 'Aller au Checkout' },
+                hero: {
+                    badge: '✨ Rejoignez 10 000+ personnes vitales',
+                    title1: 'Ressentez la Puissance de',
+                    title2: 'Vitalité Pure',
+                    subtitle: 'VFL Gold est plus qu\'un supplément. C\'est votre rituel quotidien pour une énergie inépuisable, une concentration laser et une récupération ultra-rapide. Scientifiquement prouvé. Emballage luxueux.',
+                    cta1: 'Réclamez Votre VFL Gold',
+                    cta2: 'Découvrez la Magie',
+                    badge1: 'Livraison gratuite €40+',
+                    badge2: 'Demain à domicile',
+                    badge3: 'Garantie 30 jours'
+                },
+                sticky: { text: 'Choisissez votre pack VFL Gold', order: 'Commander' }
+            }
+        };
+
+        function applyTranslations(lang) {
+            const t = translations[lang] || translations.nl;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let value = t;
+                for (const k of keys) value = value?.[k];
+                if (value) el.textContent = value;
+            });
+            document.querySelectorAll('[data-i18n-title]').forEach(el => {
+                const key = el.getAttribute('data-i18n-title');
+                const keys = key.split('.');
+                let value = t;
+                for (const k of keys) value = value?.[k];
+                if (value) el.setAttribute('title', value);
+            });
+        }
+
         // ===== LANGUAGE SWITCHER (Minimal) =====
         let currentLang = localStorage.getItem('language') || 'nl';
         const tickerMessages = {
@@ -3756,6 +3826,10 @@
             scheduleNext();
         }
 
+        // Apply translations on page load
+        applyTranslations(currentLang);
+        document.documentElement.setAttribute('lang', currentLang);
+        
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const lang = btn.getAttribute('data-lang');
@@ -3767,6 +3841,9 @@
                     b.classList.toggle('active', b.getAttribute('data-lang') === lang);
                 });
                 
+                // Apply translations to entire website
+                applyTranslations(lang);
+                
                 // Update ticker if visible
                 if(tickerElement && tickerElement.classList.contains('show')){
                     tickerText.textContent = generateProofMessageForLang(lang);
@@ -3776,7 +3853,6 @@
         
         // Apply saved language on load
         if(currentLang !== 'nl'){
-            document.documentElement.setAttribute('lang', currentLang);
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
             });
