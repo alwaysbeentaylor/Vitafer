@@ -1,6 +1,6 @@
-# 🛍️ VFL Gold Shopify Integratie Gids
+# 🛍️ Vitafer Gold Shopify Integratie Gids
 
-Deze gids helpt je om de VFL Gold landing page naadloos te integreren in Shopify.
+Deze gids helpt je om de Vitafer website te integreren met je Shopify store op vitafer-gold.nl.
 
 ## 📦 Wat je krijgt
 
@@ -20,9 +20,9 @@ Deze gids helpt je om de VFL Gold landing page naadloos te integreren in Shopify
    - Shopify Admin → Online Store → Themes → Actions → Duplicate
 
 2. **Maak producten aan**
-   - Biofel
-   - VFL Gold Bottle  
-   - VFL Gold Sachets
+   - Vitafer L Gold (500ml fles)
+   - Vitafer Premium (sachets)
+   - Eventuele andere Vitafer producten
 
 3. **Upload afbeeldingen**
    - Upload alle product afbeeldingen naar Shopify Files
@@ -32,36 +32,35 @@ Deze gids helpt je om de VFL Gold landing page naadloos te integreren in Shopify
 
 1. **Voeg sectie toe**
    - Shopify Admin → Online Store → Themes → Actions → Edit code
-   - Sections → Add a new section → `vfl-gold-landing`
-   - Plak de inhoud van `vfl-gold-landing.liquid`
+   - Sections → Add a new section → `vitafer-landing`
+   - Plak de inhoud van de Liquid template
 
 2. **Voeg CSS toe**
-   - Assets → Add a new asset → `vfl-gold-styles.css`
-   - Plak de CSS code
+   - Assets → Add a new asset → `vitafer-styles.css`
+   - Plak de CSS code uit je HTML bestanden
 
 3. **Voeg JavaScript toe**
-   - Assets → Add a new asset → `vfl-gold-scripts.js`
-   - Plak de JavaScript code
+   - Assets → Add a new asset → `vitafer-scripts.js`
+   - Plak de JavaScript code indien nodig
 
 ### Stap 3: Page Template
 
 Maak een nieuw page template aan:
 
-**templates/page.vfl-gold-landing.json**
+**templates/page.vitafer-landing.json**
 ```json
 {
   "sections": {
-    "vfl-gold-landing": {
-      "type": "vfl-gold-landing",
+    "vitafer-landing": {
+      "type": "vitafer-landing",
       "settings": {
-        "biofel_product": "biofel",
-        "bottle_product": "vfl-gold-bottle",
-        "sachets_product": "vfl-gold-sachets"
+        "vitafer_gold_product": "vitafer-l-gold-500ml",
+        "vitafer_premium_product": "vitafer-premium-sachets"
       }
     }
   },
   "order": [
-    "vfl-gold-landing"
+    "vitafer-landing"
   ]
 }
 ```
@@ -70,12 +69,12 @@ Maak een nieuw page template aan:
 
 1. **Nieuwe pagina**
    - Shopify Admin → Online Store → Pages → Add page
-   - Titel: "VFL Gold"
-   - Template: `page.vfl-gold-landing`
+   - Titel: "Vitafer Gold"
+   - Template: `page.vitafer-landing`
 
 2. **Homepage instellen** (optioneel)
    - Online Store → Themes → Customize
-   - Homepage → Change template → Select "VFL Gold"
+   - Homepage → Change template → Select "Vitafer Landing"
 
 ---
 
@@ -195,20 +194,20 @@ De cart dropdown gebruikt het theme's cart drawer (indien beschikbaar).
 ## 📞 Support
 
 Voor vragen over de integratie:
-- Email: info@vflgold.nl
 - Check Shopify documentatie: https://shopify.dev
+- Domein configuratie: Zie DOMEIN-CONFIGURATIE.md
 
 ---
 
 ## 🎉 Gereed!
 
-Na het volgen van deze stappen heb je een volledig werkende VFL Gold landing page in Shopify met:
+Na het volgen van deze stappen heb je een volledig werkende Vitafer website geïntegreerd met Shopify:
 
-✅ 360° product viewer  
-✅ Ajax cart integratie  
-✅ Conversie optimalisatie  
-✅ Mobile responsive  
+✅ Custom domein vitafer-gold.nl
+✅ Shopify product integratie  
+✅ Ajax cart functionaliteit  
+✅ Mobile responsive design  
 ✅ SEO geoptimaliseerd  
 
-Veel succes met je VFL Gold shop! 🚀
+Veel succes met je Vitafer Gold shop! 🚀
 
