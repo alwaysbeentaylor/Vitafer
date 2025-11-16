@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/vitafer.html"
-    },
-    {
       "source": "/vitafer",
       "destination": "/vitafer.html"
     },
