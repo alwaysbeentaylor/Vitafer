@@ -3690,14 +3690,83 @@
             });
         }
 
+        // ===== SHOPIFY CUSTOMER API =====
+        // Note: Admin token should be stored server-side for security
+        // For now, using a placeholder - replace with your token or use server-side proxy
+        const ADMIN_TOKEN = 'YOUR_SHOPIFY_ADMIN_TOKEN_HERE'; // Replace with your token
+        
+        async function addEmailToShopify(email) {
+            try {
+                // IMPORTANT: This requires a server-side proxy for security
+                // The Admin API token should NOT be exposed in client-side code
+                // For production, create an API endpoint that handles this server-side
+                
+                const response = await fetch(`https://${SHOPIFY_STORE}/admin/api/2025-01/customers.json`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Shopify-Access-Token': ADMIN_TOKEN
+                    },
+                    body: JSON.stringify({
+                        customer: {
+                            email: email,
+                            accepts_marketing: true,
+                            tags: 'newsletter, exit-intent-popup'
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    // If customer already exists (422), that's okay
+                    if (response.status === 422 && errorData.errors && errorData.errors.email) {
+                        console.log('Customer already exists:', email);
+                        return { success: true, message: 'already_exists' };
+                    }
+                    throw new Error(`Shopify API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('Customer added to Shopify:', data.customer.email);
+                return { success: true, message: 'added' };
+            } catch (error) {
+                console.error('Error adding email to Shopify:', error);
+                return { success: false, error: error.message };
+            }
+        }
+
         // Handle form submission
         if (exitForm) {
-            exitForm.addEventListener('submit', (e) => {
+            exitForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const email = exitForm.querySelector('input[type="email"]').value;
-                alert(`Bedankt! Je kortingscode is: FIRST10\n\nWe hebben je email (${email}) ontvangen.`);
-                exitPopup.classList.remove('active');
-                // In Shopify: hier zou je de email naar Klaviyo/Shopify sturen
+                const emailInput = exitForm.querySelector('input[type="email"]');
+                const email = emailInput.value.trim();
+                const submitBtn = exitForm.querySelector('button[type="submit"]');
+                
+                if (!email) {
+                    alert('Voer een geldig email adres in.');
+                    return;
+                }
+
+                // Disable button during submission
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Bezig...';
+
+                // Add email to Shopify
+                const result = await addEmailToShopify(email);
+
+                if (result.success) {
+                    alert(`Bedankt! Je kortingscode is: FIRST10\n\nJe email (${email}) is toegevoegd aan onze nieuwsbrief.`);
+                    exitPopup.classList.remove('active');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    alert(`Er is een fout opgetreden. Probeer het later opnieuw.\n\nJe kortingscode is: FIRST10`);
+                    console.error('Failed to add email:', result.error);
+                }
+
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Claim Korting';
             });
         }
 
