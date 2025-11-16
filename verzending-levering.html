@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verzending & Levering — VFL Gold</title>
+    <meta name="description" content="Informatie over verzending en levering van VFL Gold producten. Snelle verzending binnen Nederland en België.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A961;
+            --gold-dark: #B8944E;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --grey-light: #F5F5F5;
+            --grey: #E0E0E0;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #757575;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+            line-height: 1.8;
+            padding-top: 100px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201, 169, 97, 0.3);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%);
+            padding: 5rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .info-card {
+            background: var(--off-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card h2 {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card p {
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+        }
+
+        .info-card ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card li {
+            color: var(--text-medium);
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        footer {
+            background: var(--text-dark);
+            color: var(--grey-light);
+            padding: 5rem 5% 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--grey);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--grey);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .info-card {
+                padding: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="vitafer-premium.html" class="logo">VFL<span>Gold</span></a>
+        <div class="nav-links">
+            <a href="vitafer-premium.html#benefits">Voordelen</a>
+            <a href="vitafer-premium.html#formula">Formule</a>
+            <a href="vitafer-premium.html#testimonials">Reviews</a>
+            <a href="vitafer-premium.html#product" class="nav-cta">Bestel Nu</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Verzending & Levering</h1>
+        <p>Snelle en betrouwbare verzending binnen Nederland en België</p>
+    </div>
+
+    <!-- CONTENT SECTION -->
+    <div class="content-section">
+        <div class="info-card">
+            <h2>📦 Verzendinformatie</h2>
+            
+            <div class="highlight-box">
+                <p>🚀 Voor 16:00 besteld, morgen in huis! (Nederland & België)</p>
+            </div>
+
+            <h3>Verzendkosten</h3>
+            <ul>
+                <li><strong>Gratis verzending</strong> bij bestellingen vanaf €40</li>
+                <li><strong>€4,95</strong> verzendkosten bij bestellingen onder €40</li>
+                <li>Verzending naar België: €6,95 (gratis vanaf €50)</li>
+            </ul>
+
+            <h3>Levertijden</h3>
+            <p>Wij streven ernaar om alle bestellingen zo snel mogelijk te verzenden:</p>
+            <ul>
+                <li><strong>Nederland:</strong> 1-2 werkdagen</li>
+                <li><strong>België:</strong> 2-3 werkdagen</li>
+                <li>Bestellingen voor 16:00 worden dezelfde dag nog verzonden (werkdagen)</li>
+            </ul>
+
+            <h3>Verzendmethoden</h3>
+            <p>Wij verzenden via PostNL en DHL. Je ontvangt een Track & Trace code per e-mail zodra je pakket is verzonden.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>🌍 Internationale verzending</h2>
+            <p>Op dit moment verzenden wij alleen naar Nederland en België. Voor vragen over internationale verzending, neem contact met ons op via <a href="mailto:info@vflgold.nl">info@vflgold.nl</a>.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>📬 Pakket volgen</h2>
+            <p>Na verzending ontvang je automatisch een Track & Trace code per e-mail. Met deze code kun je je pakket volgen via de website van de vervoerder.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>⚠️ Problemen met levering</h2>
+            <p>Als je pakket niet op tijd aankomt of beschadigd is, neem dan direct contact met ons op via <a href="contact.html">ons contactformulier</a> of <a href="mailto:info@vflgold.nl">info@vflgold.nl</a>.</p>
+            <p>Wij zorgen ervoor dat het probleem zo snel mogelijk wordt opgelost.</p>
+        </div>
+
+        <div class="info-card">
+            <h2>❓ Veelgestelde vragen</h2>
+            
+            <h3>Wanneer wordt mijn bestelling verzonden?</h3>
+            <p>Bestellingen die voor 16:00 worden geplaatst, worden dezelfde dag nog verzonden (op werkdagen). Bestellingen na 16:00 worden de volgende werkdag verzonden.</p>
+
+            <h3>Kan ik mijn verzendadres wijzigen?</h3>
+            <p>Zolang je bestelling nog niet is verzonden, kun je je verzendadres wijzigen door contact met ons op te nemen.</p>
+
+            <h3>Wat als ik niet thuis ben?</h3>
+            <p>De vervoerder zal een afhaalpoging doen. Als je niet thuis bent, wordt het pakket bij een afhaalpunt bezorgd. Je ontvangt hierover een bericht.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>VFL Gold</h3>
+                <p>Premium vitaliteit in elke druppel. Ontwikkeld voor mensen die weigeren compromissen te sluiten als het gaat om hun gezondheid.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="vitafer-premium.html#benefits">Voordelen</a></li>
+                    <li><a href="vitafer-premium.html#formula">Formule</a></li>
+                    <li><a href="vitafer-premium.html#testimonials">Reviews</a></li>
+                    <li><a href="vitafer-premium.html#product">Bestellen</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="vitafer-premium.html#faq">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="verzending-levering.html">Verzending</a></li>
+                    <li><a href="retourbeleid.html">Retourneren</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Juridisch</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacybeleid</a></li>
+                    <li><a href="algemene-voorwaarden.html">Algemene Voorwaarden</a></li>
+                    <li><a href="contact.html">Over VFL Gold</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 VFL Gold. All rights reserved. Made with 💛 in Nederland.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '1rem 5%';
+                navbar.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '1.5rem 5%';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
+
