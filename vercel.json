@@ -1,55 +1,40 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "**/*.html",
-      "use": "@vercel/static"
+      "source": "/",
+      "destination": "/vitafer.html"
     },
     {
-      "src": "**/*.{jpg,jpeg,png,gif,webp,svg,css,js,txt,xml,md}",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/vitafer.html"
+      "source": "/vitafer",
+      "destination": "/vitafer.html"
     },
     {
-      "src": "/vitafer",
-      "dest": "/vitafer.html"
+      "source": "/vitafer-premium",
+      "destination": "/vitafer-premium.html"
     },
     {
-      "src": "/vitafer-premium",
-      "dest": "/vitafer-premium.html"
+      "source": "/over-ons",
+      "destination": "/over-ons.html"
     },
     {
-      "src": "/over-ons",
-      "dest": "/over-ons.html"
+      "source": "/contact",
+      "destination": "/contact.html"
     },
     {
-      "src": "/contact",
-      "dest": "/contact.html"
+      "source": "/privacy",
+      "destination": "/privacy.html"
     },
     {
-      "src": "/privacy",
-      "dest": "/privacy.html"
+      "source": "/algemene-voorwaarden",
+      "destination": "/algemene-voorwaarden.html"
     },
     {
-      "src": "/algemene-voorwaarden",
-      "dest": "/algemene-voorwaarden.html"
+      "source": "/retourbeleid",
+      "destination": "/retourbeleid.html"
     },
     {
-      "src": "/retourbeleid",
-      "dest": "/retourbeleid.html"
-    },
-    {
-      "src": "/verzending-levering",
-      "dest": "/verzending-levering.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/verzending-levering",
+      "destination": "/verzending-levering.html"
     }
   ],
   "cleanUrls": true,
