@@ -39,46 +39,45 @@ function extractNumericId(gid) {
 }
 
 async function createVariant(adminToken, productId, title, price) {
-  const mutation = `
-    mutation {
-      productVariantCreate(productId: "${productId}", input: {
-        title: "${title}",
-        price: "${price}",
-        inventoryPolicy: CONTINUE
-      }) {
-        productVariant {
-          id
-          title
-          price
-        }
-        userErrors {
-          field
-          message
-        }
-      }
-    }
-  `;
+  // Gebruik REST API om variant toe te voegen
+  // Stuur alleen de nieuwe variant, niet alle varianten
+  const newVariant = {
+    title: title,
+    price: price,
+    inventory_policy: 'continue'
+  };
 
-  const response = await fetch(`https://${SHOPIFY_STORE}/admin/api/2024-01/graphql.json`, {
-    method: 'POST',
+  // Update product met alleen de nieuwe variant (Shopify voegt deze toe aan bestaande)
+  const updateResponse = await fetch(`https://${SHOPIFY_STORE}/admin/api/2024-01/products/${productId}.json`, {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
       'X-Shopify-Access-Token': adminToken
     },
-    body: JSON.stringify({ query: mutation })
+    body: JSON.stringify({
+      product: {
+        variants: [newVariant]  // Alleen nieuwe variant, Shopify voegt deze toe
+      }
+    })
   });
 
-  const data = await response.json();
+  if (!updateResponse.ok) {
+    const errorText = await updateResponse.text();
+    throw new Error(`Failed to update product: ${updateResponse.status} ${updateResponse.statusText} - ${errorText}`);
+  }
+
+  const updateData = await updateResponse.json();
   
-  if (data.errors) {
-    throw new Error(`GraphQL Errors: ${JSON.stringify(data.errors)}`);
-  }
-
-  if (data.data.productVariantCreate.userErrors.length > 0) {
-    throw new Error(`User Errors: ${JSON.stringify(data.data.productVariantCreate.userErrors)}`);
-  }
-
-  return data.data.productVariantCreate.productVariant;
+  // Vind de nieuwe variant door te zoeken op titel en prijs
+  const createdVariant = updateData.product.variants.find(v => 
+    v.title === title && parseFloat(v.price) === parseFloat(price)
+  ) || updateData.product.variants[updateData.product.variants.length - 1];
+  
+  return {
+    id: `gid://shopify/ProductVariant/${createdVariant.id}`,
+    title: createdVariant.title,
+    price: createdVariant.price
+  };
 }
 
 function askQuestion(query) {
@@ -99,8 +98,10 @@ async function setupVariants() {
     console.log('  BLACK FRIDAY VARIANTEN SETUP');
     console.log('═══════════════════════════════════════════════════════════════\n');
 
-    // Vraag Admin token
-    let adminToken = process.env.SHOPIFY_ADMIN_TOKEN;
+    // Vraag Admin token - check command line argument eerst
+    let adminToken = process.argv[2] || 
+                     process.env.SHOPIFY_ADMIN_TOKEN || 
+                     process.env.ADMIN_TOKEN;
     
     if (!adminToken) {
       console.log('📝 Admin API token nodig om varianten aan te maken.\n');
@@ -109,13 +110,25 @@ async function setupVariants() {
       console.log('   2. Klik op "Develop apps" → "Create app"');
       console.log('   3. Geef "Read and write products" rechten');
       console.log('   4. Kopieer de Admin API access token\n');
+      console.log('💡 Gebruik: node setup-black-friday-variants.js JE_TOKEN_HIER');
+      console.log('   Of: SHOPIFY_ADMIN_TOKEN=je_token node setup-black-friday-variants.js\n');
       
-      adminToken = await askQuestion('Voer je Admin API token in: ');
-      
-      if (!adminToken || adminToken.trim() === '') {
-        console.log('\n❌ Geen token ingevoerd. Script gestopt.');
+      // Probeer interactief te vragen (alleen als stdin beschikbaar is)
+      if (process.stdin.isTTY) {
+        adminToken = await askQuestion('Voer je Admin API token in (of druk Enter om te stoppen): ');
+        
+        if (!adminToken || adminToken.trim() === '') {
+          console.log('\n❌ Geen token ingevoerd. Script gestopt.');
+          console.log('💡 Tip: node setup-black-friday-variants.js JE_TOKEN_HIER');
+          process.exit(1);
+        }
+        adminToken = adminToken.trim();
+      } else {
+        console.log('❌ Geen token gevonden en geen interactieve input beschikbaar.');
+        console.log('💡 Gebruik: node setup-black-friday-variants.js JE_TOKEN_HIER');
         process.exit(1);
       }
+    } else {
       adminToken = adminToken.trim();
     }
 
@@ -179,7 +192,7 @@ async function setupVariants() {
       if (!has2Bottles) {
         console.log('\n⚠️  VFL Gold 2 Flessen variant ontbreekt');
         variantsToCreate.push({
-          productId: vflGoldProduct.id,
+          productId: extractNumericId(vflGoldProduct.id),
           productName: 'VFL Gold',
           title: '2 Flessen',
           price: '94.95',
@@ -209,7 +222,7 @@ async function setupVariants() {
       if (!has2Bottles) {
         console.log('\n⚠️  Biofel 2 Flessen variant ontbreekt');
         variantsToCreate.push({
-          productId: biofelProduct.id,
+          productId: extractNumericId(biofelProduct.id),
           productName: 'Biofel',
           title: '2 Flessen',
           price: '94.95',
