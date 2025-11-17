@@ -13,9 +13,9 @@ const REQUIRED_PRODUCTS = {
     handle: 'vfl-gold-500ml',
     description: 'Vloeibare premium multivitamine formule (500ml) voor dagelijkse energie, focus en herstel.',
     variants: [
-      { title: 'Default Title', price: '49.95' },
-      { title: '2 Flessen', price: '94.95' },
-      { title: '3 Flessen', price: '139.95' }
+      { title: 'Default Title', price: '64.95' },
+      { title: '2 Flessen', price: '124.99' },
+      { title: '3 Flessen', price: '179.99' }
     ]
   },
   'biofel': {
@@ -23,9 +23,9 @@ const REQUIRED_PRODUCTS = {
     handle: 'biofel',
     description: 'Natuurlijke bio-actieve blend voor dagelijkse energie en balans. Geselecteerde ingrediënten voor optimale vitaliteit.',
     variants: [
-      { title: 'Default Title', price: '49.95' },
-      { title: '2 Flessen', price: '94.95' },
-      { title: '3 Flessen', price: '139.95' }
+      { title: 'Default Title', price: '64.95' },
+      { title: '2 Flessen', price: '124.99' },
+      { title: '3 Flessen', price: '179.99' }
     ]
   },
   'sachets': {
@@ -33,12 +33,12 @@ const REQUIRED_PRODUCTS = {
     handle: 'vfl-gold-sachets',
     description: 'Handige dagdosering (10ml per sachet) voor onderweg. Zelfde gouden formule, maximale gemak.',
     variants: [
-      { title: '3 stuks', price: '15.00' },
-      { title: '5 stuks', price: '25.00' },
-      { title: '10 stuks', price: '45.00' },
-      { title: '15 stuks', price: '67.50' },
-      { title: '20 stuks', price: '90.00' },
-      { title: '30 stuks', price: '135.00' }
+      { title: '3 stuks', price: '22.50' },  // 3 * 7.50
+      { title: '5 stuks', price: '37.50' },  // 5 * 7.50
+      { title: '10 stuks', price: '67.50' }, // 10 * 7.50 * 0.9 (10% korting)
+      { title: '15 stuks', price: '101.25' }, // 15 * 7.50 * 0.9
+      { title: '20 stuks', price: '135.00' }, // 20 * 7.50 * 0.9
+      { title: '30 stuks', price: '202.50' }  // 30 * 7.50 * 0.9
     ],
     skipDefaultTitle: true  // Geen Default Title voor sachets
   }
@@ -96,19 +96,21 @@ async function createProduct(adminToken, productData) {
       'Content-Type': 'application/json',
       'X-Shopify-Access-Token': adminToken
     },
-    body: JSON.stringify({
-      product: {
-        title: productData.title,
-        body_html: productData.description,
-        vendor: 'Vitafer',
-        product_type: 'Supplements',
-        variants: [{
-          title: firstVariant.title,
-          price: firstVariant.price,
-          inventory_policy: 'continue'
-        }]
-      }
-    })
+        body: JSON.stringify({
+          product: {
+            title: productData.title,
+            body_html: productData.description,
+            vendor: 'Vitafer',
+            product_type: 'Supplements',
+            status: 'active', // Publiceer product direct
+            published: true,
+            variants: [{
+              title: firstVariant.title,
+              price: firstVariant.price,
+              inventory_policy: 'continue'
+            }]
+          }
+        })
   });
 
   if (!response.ok) {
@@ -215,6 +217,30 @@ async function addVariantToProduct(adminToken, productId, variantData) {
   return data.product.variants[data.product.variants.length - 1];
 }
 
+async function updateVariantPrice(adminToken, productId, variantId, newPrice) {
+  const response = await fetch(`https://${SHOPIFY_STORE}/admin/api/2024-01/products/${productId}/variants/${variantId}.json`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Shopify-Access-Token': adminToken
+    },
+    body: JSON.stringify({
+      variant: {
+        id: variantId,
+        price: newPrice
+      }
+    })
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Failed to update variant price: ${response.status} ${response.statusText} - ${errorText}`);
+  }
+
+  const data = await response.json();
+  return data.variant;
+}
+
 async function setupAllProducts() {
   try {
     const adminToken = process.argv[2] || process.env.SHOPIFY_ADMIN_TOKEN || process.env.ADMIN_TOKEN;
@@ -308,14 +334,36 @@ async function setupAllProducts() {
         }
 
         if (existingVariant) {
-          console.log(`   ✅ Variant "${variantTitle}" (€${variantPrice.toFixed(2)}) bestaat al: ${existingVariant.id}`);
+          // Check of prijs moet worden bijgewerkt
+          if (Math.abs(existingVariant.price - variantPrice) > 0.01) {
+            console.log(`   ⚠️  Variant "${variantTitle}" prijs bijwerken: €${existingVariant.price.toFixed(2)} → €${variantPrice.toFixed(2)}`);
+            try {
+              const numericProductId = extractNumericId(product.id);
+              await updateVariantPrice(adminToken, numericProductId, existingVariant.id, variantPrice.toString());
+              console.log(`   ✅ Prijs bijgewerkt!`);
+            } catch (error) {
+              console.error(`   ❌ Fout bij bijwerken prijs: ${error.message}`);
+            }
+          } else {
+            console.log(`   ✅ Variant "${variantTitle}" (€${variantPrice.toFixed(2)}) bestaat al: ${existingVariant.id}`);
+          }
           variantMap[`${key}-${variantTitle.toLowerCase().replace(/\s+/g, '-')}`] = existingVariant.id;
         } else {
           // Skip "Default Title" als er al varianten zijn (om duplicaat te voorkomen)
           if (variantTitle === 'Default Title' && (existingVariants.length > 0 || REQUIRED_PRODUCTS[key].skipDefaultTitle)) {
             if (existingVariants.length > 0) {
-              // Gebruik de eerste bestaande variant als "Default Title"
+              // Gebruik de eerste bestaande variant als "Default Title" en update prijs indien nodig
               const firstVariant = existingVariants[0];
+              if (Math.abs(firstVariant.price - variantPrice) > 0.01) {
+                console.log(`   ⚠️  Variant "${variantTitle}" prijs bijwerken: €${firstVariant.price.toFixed(2)} → €${variantPrice.toFixed(2)}`);
+                try {
+                  const numericProductId = extractNumericId(product.id);
+                  await updateVariantPrice(adminToken, numericProductId, firstVariant.id, variantPrice.toString());
+                  console.log(`   ✅ Prijs bijgewerkt!`);
+                } catch (error) {
+                  console.error(`   ❌ Fout bij bijwerken prijs: ${error.message}`);
+                }
+              }
               console.log(`   ℹ️  Variant "${variantTitle}" overslaan (gebruik bestaande: ${firstVariant.id})`);
               variantMap[`${key}-default-title`] = firstVariant.id;
             } else {
@@ -346,16 +394,22 @@ async function setupAllProducts() {
       let updatesMade = 0;
 
       // VFL Gold varianten
-      if (variantMap['vfl-gold-default-title']) {
+      if (variantMap['vfl-gold-default-title'] || variantMap['vfl-gold-1-fles']) {
+        const variantId = variantMap['vfl-gold-default-title'] || variantMap['vfl-gold-1-fles'];
+        const oldContent = htmlContent;
         htmlContent = htmlContent.replace(
-          /data-shopify-variant-id="52127630688522"/g,
-          `data-shopify-variant-id="${variantMap['vfl-gold-default-title']}"`
+          /data-shopify-variant-id="VUL_VFL_1_FLES"/g,
+          `data-shopify-variant-id="${variantId}"`
         );
+        if (oldContent !== htmlContent) {
+          console.log(`✅ VFL Gold 1 Fles: ${variantId}`);
+          updatesMade++;
+        }
       }
       if (variantMap['vfl-gold-2-flessen']) {
         const oldContent = htmlContent;
         htmlContent = htmlContent.replace(
-          /data-shopify-variant-id="bf-2-bottles"/g,
+          /data-shopify-variant-id="VUL_VFL_2_FLESSEN"/g,
           `data-shopify-variant-id="${variantMap['vfl-gold-2-flessen']}"`
         );
         if (oldContent !== htmlContent) {
@@ -364,23 +418,34 @@ async function setupAllProducts() {
         }
       }
       if (variantMap['vfl-gold-3-flessen']) {
+        const oldContent = htmlContent;
         htmlContent = htmlContent.replace(
-          /data-shopify-variant-id="52128254755082"/g,
+          /data-shopify-variant-id="VUL_VFL_3_FLESSEN"/g,
           `data-shopify-variant-id="${variantMap['vfl-gold-3-flessen']}"`
         );
+        if (oldContent !== htmlContent) {
+          console.log(`✅ VFL Gold 3 Flessen: ${variantMap['vfl-gold-3-flessen']}`);
+          updatesMade++;
+        }
       }
 
       // Biofel varianten
-      if (variantMap['biofel-default-title']) {
+      if (variantMap['biofel-default-title'] || variantMap['biofel-1-fles']) {
+        const variantId = variantMap['biofel-default-title'] || variantMap['biofel-1-fles'];
+        const oldContent = htmlContent;
         htmlContent = htmlContent.replace(
-          /data-shopify-variant-id="52128254787850"/g,
-          `data-shopify-variant-id="${variantMap['biofel-default-title']}"`
+          /data-shopify-variant-id="VUL_BIOFEL_1_FLES"/g,
+          `data-shopify-variant-id="${variantId}"`
         );
+        if (oldContent !== htmlContent) {
+          console.log(`✅ Biofel 1 Fles: ${variantId}`);
+          updatesMade++;
+        }
       }
       if (variantMap['biofel-2-flessen']) {
         const oldContent = htmlContent;
         htmlContent = htmlContent.replace(
-          /data-shopify-variant-id="bf-2-biofel"/g,
+          /data-shopify-variant-id="VUL_BIOFEL_2_FLESSEN"/g,
           `data-shopify-variant-id="${variantMap['biofel-2-flessen']}"`
         );
         if (oldContent !== htmlContent) {
@@ -389,10 +454,15 @@ async function setupAllProducts() {
         }
       }
       if (variantMap['biofel-3-flessen']) {
+        const oldContent = htmlContent;
         htmlContent = htmlContent.replace(
-          /data-shopify-variant-id="52128254820618"/g,
+          /data-shopify-variant-id="VUL_BIOFEL_3_FLESSEN"/g,
           `data-shopify-variant-id="${variantMap['biofel-3-flessen']}"`
         );
+        if (oldContent !== htmlContent) {
+          console.log(`✅ Biofel 3 Flessen: ${variantMap['biofel-3-flessen']}`);
+          updatesMade++;
+        }
       }
 
       // Sachets varianten
