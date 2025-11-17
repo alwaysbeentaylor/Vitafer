@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>VFL Gold — Premium Vitaliteit in Elke Druppel</title>
+    <title>Black Friday — VFL Gold Premium Vitaliteit | Tot 30% Korting</title>
     <meta name="description" content="Ontdek VFL Gold: De revolutionaire formule voor onvermoeibare energie, laser-focus en snel herstel. Join 10.000+ vitale mensen.">
     <meta name="keywords" content="VFL Gold, vitaliteit, energie supplement, focus, herstel, Biofel, premium supplement, natuurlijke energie">
     <meta name="robots" content="noindex, nofollow">
@@ -187,6 +187,10 @@
             --text-dark: #1a1a1a;
             --text-medium: #4a4a4a;
             --text-light: #757575;
+            /* Black Friday Colors */
+            --black-friday: #000000;
+            --gold-bright: #FFD700;
+            --savings-red: #FF3B3B;
         }
 
         body {
@@ -520,6 +524,385 @@
         .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        /* BLACK FRIDAY BANNER */
+        .bf-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--black-friday);
+            color: var(--gold-bright);
+            padding: 0.75rem 5%;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 1001;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: bfPulse 3s ease-in-out infinite;
+        }
+
+        .bf-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            animation: bfShimmer 3s infinite;
+        }
+
+        @keyframes bfPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(255, 215, 0, 0.5); }
+        }
+
+        @keyframes bfShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .bf-banner-text {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .bf-banner-text span {
+            display: inline-block;
+        }
+
+        body.has-bf-banner {
+            padding-top: 50px;
+        }
+
+        body.has-bf-banner .navbar {
+            top: 50px;
+        }
+
+        /* BLACK FRIDAY POPUP MODAL */
+        .bf-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 2rem;
+        }
+
+        .bf-popup-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .bf-popup-modal {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--gold-bright);
+            transform: translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .bf-popup-overlay.show .bf-popup-modal {
+            transform: translateY(0);
+        }
+
+        .bf-popup-close {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .bf-popup-close:hover {
+            background: var(--grey-light);
+            color: var(--text-dark);
+            transform: rotate(90deg);
+        }
+
+        .bf-popup-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--black-friday);
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            padding-right: 2rem;
+        }
+
+        .bf-popup-title span {
+            color: var(--gold-bright);
+        }
+
+        .bf-popup-deals {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 0;
+        }
+
+        .bf-popup-deals li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--grey-light);
+            font-size: 1rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .bf-popup-deals li strong {
+            font-weight: 700;
+            color: var(--black-friday);
+        }
+
+        .bf-popup-deals li:last-child {
+            border-bottom: none;
+        }
+
+        .bf-popup-deals li::before {
+            content: '✓';
+            color: var(--gold-bright);
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .bf-popup-note {
+            text-align: center;
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .bf-popup-cta {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
+            color: var(--black-friday);
+            border: none;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .bf-popup-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
+
+        /* BLACK FRIDAY FLOATING BADGE */
+        .bf-floating-badge {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--black-friday);
+            border: 3px solid var(--gold-bright);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            z-index: 999;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            animation: bfFloatPulse 2s ease-in-out infinite;
+            text-align: center;
+            line-height: 1.2;
+            padding: 0.3rem;
+        }
+
+        @keyframes bfFloatPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 5px 30px rgba(255, 215, 0, 0.5);
+            }
+        }
+
+        .bf-floating-badge:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        /* BLACK FRIDAY PRODUCT BADGE */
+        .bf-product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--black-friday);
+            color: var(--gold-bright);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            border: 2px solid var(--gold-bright);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: bfBadgePulse 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @media (min-width: 1025px) {
+            .product-card .product-image-wrapper .product-badge {
+                top: 15px;
+                right: 15px;
+            }
+            .product-card .product-image-wrapper .bf-product-badge {
+                top: 60px;
+                left: 15px;
+            }
+        }
+
+        @keyframes bfBadgePulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+            }
+        }
+
+        /* BLACK FRIDAY SPARKLES */
+        .bf-sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold-bright);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: sparkleAnim 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkleAnim {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0) translateY(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1) translateY(-20px);
+            }
+        }
+
+        .product-card:hover .bf-sparkle {
+            animation-delay: calc(var(--delay) * 0.1s);
+        }
+
+        /* GOLDEN GLOW ON HOVER */
+        .product-card.bf-product:hover {
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.3);
+            border-color: var(--gold-bright);
+        }
+
+        /* SAVINGS BADGE STYLING */
+        .savings {
+            background: var(--savings-red) !important;
+            color: var(--white) !important;
+        }
+
+        @media (max-width: 768px) {
+            .bf-banner {
+                font-size: 0.75rem;
+                padding: 0.6rem 3%;
+            }
+
+            .bf-banner-text {
+                gap: 0.5rem;
+            }
+
+            .bf-popup-overlay {
+                padding: 1rem;
+                align-items: flex-start;
+                padding-top: 2rem;
+            }
+
+            .bf-popup-modal {
+                padding: 1.5rem 1.25rem;
+                margin: 0;
+                max-width: calc(100% - 2rem);
+                max-height: calc(100vh - 2rem);
+            }
+
+            .bf-popup-title {
+                font-size: 1.6rem;
+                margin-top: 0;
+                padding-right: 2rem;
+            }
+
+            .bf-popup-deals {
+                margin: 1.5rem 0;
+            }
+
+            .bf-popup-deals li {
+                font-size: 0.9rem;
+                padding: 0.6rem 0;
+            }
+
+            .bf-popup-close {
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 32px;
+                height: 32px;
+                font-size: 1.5rem;
+            }
+
+            .bf-floating-badge {
+                width: 50px;
+                height: 50px;
+                font-size: 0.6rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
         }
 
         /* HERO SECTION */
@@ -2326,6 +2709,20 @@
     </style>
 </head>
 <body>
+    <!-- BLACK FRIDAY BANNER -->
+    <div class="bf-banner">
+        <div class="bf-banner-text">
+            <span>🔥</span>
+            <span>BLACK FRIDAY</span>
+            <span>|</span>
+            <span>Tot 30% Korting</span>
+            <span>|</span>
+            <span>Combineer & Bespaar</span>
+            <span>|</span>
+            <span>Tijdelijk</span>
+        </div>
+    </div>
+
     <!-- Subtle Language Switcher -->
     <div class="lang-switcher">
         <button class="lang-btn active" data-lang="nl" title="Nederlands">NL</button>
@@ -2394,6 +2791,9 @@
         
         <div class="hero-content">
             <div class="hero-badge" data-i18n="hero.badge">✨ Join 10.000+ vitale mensen</div>
+            <div class="hero-badge" style="background: rgba(0, 0, 0, 0.1); border-color: var(--gold-bright); color: var(--black-friday); margin-top: 0.5rem;">
+                🔥 Black Friday Actie
+            </div>
                 <h1>
                 <span data-i18n="hero.title1">Voel de Kracht van</span>
                 <span class="gold-text" data-i18n="hero.title2">Pure Vitaliteit</span>
@@ -2410,7 +2810,7 @@
             <div class="trust-badges">
                 <span class="trust-badge" data-i18n="hero.badge1">Gratis verzending €40+</span>
                 <span class="trust-badge" data-i18n="hero.badge2">Morgen in huis</span>
-                <span class="trust-badge" data-i18n="hero.badge3">30 dagen garantie</span>
+                <span class="trust-badge" data-i18n="hero.badge3">Black Friday Garantie: 30 dagen retour</span>
                 </div>
             </div>
 
@@ -2690,10 +3090,11 @@
             <div class="sachet-particle" style="top: 50%; right: 8%; animation-delay: 3s;"></div>
             <div class="product-grid">
                 <!-- Product 1: VFL Gold 500ml (eigen cart) -->
-                <div class="product-card" data-product="bottle" data-image="vitafer-bottle-360.png">
+                <div class="product-card bf-product" data-product="bottle" data-image="vitafer-bottle-360.png">
                     <div class="product-image-wrapper">
                         <div class="product-image" data-bg="vitafer-bottle-360.png" style="background-image: url('vitafer-bottle-360.png');"></div>
                         <div class="product-badge">🔥 Bestseller</div>
+                        <div class="bf-product-badge">BLACK FRIDAY</div>
                     </div>
                 <div class="product-info">
                         <h2>VFL Gold 500ml</h2>
@@ -2724,12 +3125,19 @@
                                         </div>
                                         <div class="variant-price">€49,95</div>
                                     </div>
-                                    <div class="variant-option" data-price="129.95" data-shopify-variant-id="52128254755082">
+                                    <div class="variant-option" data-price="94.95" data-shopify-variant-id="bf-2-bottles">
+                                        <div class="variant-info">
+                                            <h4>2 Flessen</h4>
+                                            <p>Combineer & Bespaar</p>
+                                        </div>
+                                        <div class="variant-price">€94,95</div>
+                                    </div>
+                                    <div class="variant-option" data-price="139.95" data-shopify-variant-id="52128254755082">
                                         <div class="variant-info">
                                             <h4>3 Flessen</h4>
                                             <p>Beste waarde</p>
                                         </div>
-                                        <div class="variant-price">€129,95</div>
+                                        <div class="variant-price">€139,95</div>
                                     </div>
                                 </div>
                             </div>
@@ -2750,10 +3158,11 @@
 
                 <!-- Product 2: Biofel -->
                 <!-- Biofel product: Prices updated to €49.95 (1 Fles) and €139.95 (3 Flessen) -->
-                <div class="product-card" data-product="biofel" data-image="biofelnieuw.png">
+                <div class="product-card bf-product" data-product="biofel" data-image="biofelnieuw.png">
                     <div class="product-image-wrapper">
                         <div class="product-image" data-bg="biofelnieuw.png" style="background-image: url('biofelnieuw.png');"></div>
                         <div class="product-badge">✨ Nieuw</div>
+                        <div class="bf-product-badge">BLACK FRIDAY</div>
                     </div>
                 <div class="product-info">
                         <h2>Biofel</h2>
@@ -2784,6 +3193,13 @@
                                         </div>
                                         <div class="variant-price">€49,95</div>
                                     </div>
+                                    <div class="variant-option" data-price="94.95" data-shopify-variant-id="bf-2-biofel">
+                                        <div class="variant-info">
+                                            <h4>2 Flessen</h4>
+                                            <p>Combineer & Bespaar</p>
+                                        </div>
+                                        <div class="variant-price">€94,95</div>
+                                    </div>
                                     <div class="variant-option" data-price="139.95" data-shopify-variant-id="52128254820618">
                                         <div class="variant-info">
                                             <h4>3 Flessen</h4>
@@ -2809,10 +3225,11 @@
                 </div>
 
                 <!-- Product 3: VFL Gold Sachets -->
-                <div class="product-card" data-product="sachets" data-image="SACHET-scaled.png">
+                <div class="product-card bf-product" data-product="sachets" data-image="SACHET-scaled.png">
                     <div class="product-image-wrapper">
                         <div class="product-image" data-bg="SACHET-scaled.png" style="background-image: url('SACHET-scaled.png');"></div>
                         <div class="product-badge">📦 Handig</div>
+                        <div class="bf-product-badge">BLACK FRIDAY</div>
                     </div>
                     <div class="product-info">
                         <h2>VFL Gold Sachets</h2>
@@ -2821,39 +3238,31 @@
                             <span class="rating-text">(873 reviews)</span>
                         </div>
                         <p class="product-description">
-                            Handige dagdosering (15×10ml) voor onderweg. 
-                            Zelfde gouden formule, maximale gemak.
+                            Handige dagdosering (10ml per sachet) voor onderweg. 
+                            Zelfde gouden formule, maximale gemak. Losse verkoop vanaf 3 stuks.
                         </p>
                         <div class="price-section">
                             <div class="price-main">
-                                <span class="current-price">€39,95</span>
-                                <span class="old-price">€44,95</span>
-                                <span class="savings">Bespaar €5</span>
+                                <span class="current-price" id="sachetPrice">€15,00</span>
+                                <span class="old-price" id="sachetOldPrice" style="display: none;"></span>
+                                <span class="savings" id="sachetSavings" style="display: none;"></span>
                             </div>
-                            <p class="price-per">€2,66 per dag (15 dagen)</p>
+                            <p class="price-per" id="sachetPricePer">€5,00 per stuk (min. 3)</p>
                         </div>
                         <div class="product-options">
                             <div class="option-group">
-                                <label>Pakket:</label>
-                                <div class="variant-options">
-                                    <div class="variant-option selected" data-price="39.95" data-shopify-variant-id="52128254853386">
-                                        <div class="variant-info">
-                                            <h4>15 Sachets</h4>
-                                            <p>15 dagen</p>
-                                        </div>
-                                        <div class="variant-price">€39,95</div>
-                                    </div>
-                                    <div class="variant-option" data-price="99.95" data-shopify-variant-id="52128254886154">
-                                        <div class="variant-info">
-                                            <h4>45 Sachets</h4>
-                                            <p>3× voordeel</p>
-                                        </div>
-                                        <div class="variant-price">€99,95</div>
-                                    </div>
-                                </div>
+                                <label>Aantal Sachets:</label>
+                                <select id="sachetQuantity" class="sachet-select" style="width: 100%; padding: 1rem; border: 2px solid var(--grey); border-radius: 10px; font-size: 1rem; margin-bottom: 1rem; background: var(--white); cursor: pointer;">
+                                    <option value="3">3 stuks — €15,00</option>
+                                    <option value="5">5 stuks — €25,00</option>
+                                    <option value="10">10 stuks — €45,00 (10% korting)</option>
+                                    <option value="15">15 stuks — €67,50 (10% korting)</option>
+                                    <option value="20">20 stuks — €90,00 (10% korting)</option>
+                                    <option value="30">30 stuks — €135,00 (10% korting)</option>
+                                </select>
                             </div>
                             <div class="option-group">
-                                <label>Aantal:</label>
+                                <label>Aantal pakketten:</label>
                                 <div class="quantity-selector">
                                     <button class="quantity-btn">−</button>
                                     <span class="quantity-value">1</span>
@@ -2861,8 +3270,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="add-to-cart-btn">
-                            🛒 Voeg Toe — €39,95
+                        <button class="add-to-cart-btn" id="sachetAddToCart">
+                            🛒 Voeg Toe — <span id="sachetButtonPrice">€15,00</span>
                         </button>
                     </div>
                 </div>
@@ -4053,6 +4462,128 @@
                 lazyBgObserver.observe(el);
             });
         }
+    </script>
+
+    <!-- BLACK FRIDAY POPUP MODAL -->
+    <div class="bf-popup-overlay" id="bfPopup">
+        <div class="bf-popup-modal">
+            <button class="bf-popup-close" id="bfPopupClose">&times;</button>
+            <h2 class="bf-popup-title">BLACK FRIDAY <span>DEAL</span> 🎁</h2>
+            <ul class="bf-popup-deals">
+                <li><strong>1 fles:</strong> €49,95</li>
+                <li><strong>2 flessen:</strong> €94,95 (<strong>combineer Biofel + Vitafer!</strong>)</li>
+                <li><strong>3 flessen:</strong> €139,95</li>
+                <li><strong>Sachets:</strong> vanaf €5 per stuk (min. 3) | <strong>10% korting</strong> vanaf 10 stuks</li>
+            </ul>
+            <p class="bf-popup-note"><strong>Deze deals zijn tijdelijk beschikbaar</strong></p>
+            <button class="bf-popup-cta" onclick="document.getElementById('bfPopup').classList.remove('show'); document.querySelector('#product').scrollIntoView({behavior: 'smooth'});">Shop Nu</button>
+        </div>
+    </div>
+
+    <!-- BLACK FRIDAY FLOATING BADGE -->
+    <div class="bf-floating-badge" onclick="document.querySelector('#product').scrollIntoView({behavior: 'smooth'});">
+        BLACK<br>FRIDAY
+    </div>
+
+    <script>
+        // Black Friday Banner - Add padding to body
+        document.body.classList.add('has-bf-banner');
+
+        // Black Friday Popup Logic
+        (function() {
+            const popup = document.getElementById('bfPopup');
+            const closeBtn = document.getElementById('bfPopupClose');
+            const popupShown = sessionStorage.getItem('bfPopupShown');
+
+            if (!popupShown) {
+                setTimeout(() => {
+                    popup.classList.add('show');
+                }, 2500);
+            }
+
+            function closePopup() {
+                popup.classList.remove('show');
+                sessionStorage.setItem('bfPopupShown', 'true');
+            }
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closePopup);
+            }
+
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    closePopup();
+                }
+            });
+        })();
+
+        // Sachets Price Calculation
+        (function() {
+            const sachetSelect = document.getElementById('sachetQuantity');
+            const sachetPrice = document.getElementById('sachetPrice');
+            const sachetOldPrice = document.getElementById('sachetOldPrice');
+            const sachetSavings = document.getElementById('sachetSavings');
+            const sachetPricePer = document.getElementById('sachetPricePer');
+            const sachetButtonPrice = document.getElementById('sachetButtonPrice');
+
+            function updateSachetPrice() {
+                const quantity = parseInt(sachetSelect.value);
+                const pricePerUnit = 5;
+                let totalPrice = quantity * pricePerUnit;
+                let discount = 0;
+                let hasDiscount = quantity >= 10;
+
+                if (hasDiscount) {
+                    discount = totalPrice * 0.1;
+                    totalPrice = totalPrice - discount;
+                }
+
+                // Update prices
+                sachetPrice.textContent = `€${totalPrice.toFixed(2).replace('.', ',')}`;
+                sachetButtonPrice.textContent = `€${totalPrice.toFixed(2).replace('.', ',')}`;
+
+                if (hasDiscount) {
+                    const originalPrice = quantity * pricePerUnit;
+                    sachetOldPrice.textContent = `€${originalPrice.toFixed(2).replace('.', ',')}`;
+                    sachetOldPrice.style.display = 'inline';
+                    sachetSavings.textContent = `Bespaar €${discount.toFixed(2).replace('.', ',')}`;
+                    sachetSavings.style.display = 'inline';
+                    sachetPricePer.textContent = `€${(totalPrice / quantity).toFixed(2).replace('.', ',')} per stuk (10% korting)`;
+                } else {
+                    sachetOldPrice.style.display = 'none';
+                    sachetSavings.style.display = 'none';
+                    sachetPricePer.textContent = `€${pricePerUnit.toFixed(2).replace('.', ',')} per stuk (min. 3)`;
+                }
+            }
+
+            if (sachetSelect) {
+                sachetSelect.addEventListener('change', updateSachetPrice);
+                updateSachetPrice(); // Initial calculation
+            }
+        })();
+
+        // Add sparkles to product cards on hover
+        (function() {
+            const productCards = document.querySelectorAll('.bf-product');
+            
+            productCards.forEach((card, index) => {
+                card.addEventListener('mouseenter', function() {
+                    // Create sparkles
+                    for (let i = 0; i < 5; i++) {
+                        const sparkle = document.createElement('div');
+                        sparkle.className = 'bf-sparkle';
+                        sparkle.style.left = Math.random() * 100 + '%';
+                        sparkle.style.top = Math.random() * 100 + '%';
+                        sparkle.style.setProperty('--delay', i);
+                        card.appendChild(sparkle);
+
+                        setTimeout(() => {
+                            sparkle.remove();
+                        }, 2000);
+                    }
+                });
+            });
+        })();
     </script>
 
 </body>
