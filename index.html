@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Black Friday — VFL Gold Premium Vitaliteit | Tot 30% Korting</title>
+    <title>VFL Gold Premium Vitaliteit | Premium Energie & Focus Supplement</title>
     <meta name="description" content="Ontdek VFL Gold: De revolutionaire formule voor onvermoeibare energie, laser-focus en snel herstel. Join 10.000+ vitale mensen.">
     <meta name="keywords" content="VFL Gold, vitaliteit, energie supplement, focus, herstel, Biofel, premium supplement, natuurlijke energie">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
     <meta name="author" content="VFL Gold">
     <meta name="language" content="nl">
-    <link rel="canonical" href="https://www.vflgold.nl/">
+    <link rel="canonical" href="https://www.vitafer-gold.nl/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.vflgold.nl/">
+    <meta property="og:url" content="https://www.vitafer-gold.nl/">
     <meta property="og:title" content="VFL Gold — Premium Vitaliteit in Elke Druppel">
     <meta property="og:description" content="Ontdek VFL Gold: De revolutionaire formule voor onvermoeibare energie, laser-focus en snel herstel. 30 dagen geld-terug-garantie.">
-    <meta property="og:image" content="https://www.vflgold.nl/vitafer-bottle-360.png">
+    <meta property="og:image" content="https://www.vitafer-gold.nl/vitafer-bottle-360.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="nl_NL">
@@ -26,10 +26,10 @@
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.vflgold.nl/">
+    <meta name="twitter:url" content="https://www.vitafer-gold.nl/">
     <meta name="twitter:title" content="VFL Gold — Premium Vitaliteit in Elke Druppel">
     <meta name="twitter:description" content="Ontdek VFL Gold: De revolutionaire formule voor onvermoeibare energie, laser-focus en snel herstel.">
-    <meta name="twitter:image" content="https://www.vflgold.nl/vitafer-bottle-360.png">
+    <meta name="twitter:image" content="https://www.vitafer-gold.nl/vitafer-bottle-360.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -46,14 +46,14 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "VFL Gold",
-        "url": "https://www.vflgold.nl",
-        "logo": "https://www.vflgold.nl/logo.png",
+        "url": "https://www.vitafer-gold.nl",
+        "logo": "https://www.vitafer-gold.nl/logo.png",
         "description": "Premium vitaliteit supplementen voor energie, focus en herstel",
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+31-6-45868328",
             "contactType": "Customer Service",
-            "email": "info@vflgold.nl",
+            "email": "info@vitafer-gold.nl",
             "areaServed": ["NL", "BE"],
             "availableLanguage": "Dutch"
         },
@@ -68,9 +68,9 @@
     {
         "@context": "https://schema.org",
         "@type": "Product",
-        "@id": "https://www.vflgold.nl/#biofel",
+        "@id": "https://www.vitafer-gold.nl/#biofel",
         "name": "Biofel",
-        "image": "https://www.vflgold.nl/815ol7dhNnL.jpg",
+        "image": "https://www.vitafer-gold.nl/815ol7dhNnL.jpg",
         "description": "Premium vitaliteit formule op basis van Borojó en Chontaduro supervruchten",
         "brand": {
             "@type": "Brand",
@@ -78,7 +78,7 @@
         },
         "offers": {
             "@type": "AggregateOffer",
-            "url": "https://www.vflgold.nl/#product",
+            "url": "https://www.vitafer-gold.nl/#product",
             "priceCurrency": "EUR",
             "lowPrice": "64.95",
             "highPrice": "179.99",
@@ -100,9 +100,9 @@
     {
         "@context": "https://schema.org",
         "@type": "Product",
-        "@id": "https://www.vflgold.nl/#vfl-gold-bottle",
+        "@id": "https://www.vitafer-gold.nl/#vfl-gold-bottle",
         "name": "VFL Gold Bottle",
-        "image": "https://www.vflgold.nl/vitafer-bottle-360.png",
+        "image": "https://www.vitafer-gold.nl/vitafer-bottle-360.png",
         "description": "500ml premium vitaliteit formule voor dagelijks gebruik",
         "brand": {
             "@type": "Brand",
@@ -110,7 +110,7 @@
         },
         "offers": {
             "@type": "AggregateOffer",
-            "url": "https://www.vflgold.nl/#product",
+            "url": "https://www.vitafer-gold.nl/#product",
             "priceCurrency": "EUR",
             "lowPrice": "39.95",
             "highPrice": "109.95",
@@ -850,6 +850,93 @@
             color: var(--white) !important;
         }
 
+        /* BLACK FRIDAY COUNTDOWN TIMER - Zwart */
+        .bf-countdown {
+            background: var(--black-friday);
+            color: var(--gold-bright);
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            margin: 1.5rem auto;
+            text-align: center;
+            border: 1px solid var(--gold-bright);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+        }
+
+        .bf-countdown-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--gold-bright);
+            letter-spacing: 0.5px;
+        }
+
+        .bf-countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 0.4rem;
+        }
+
+        .bf-countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 40px;
+        }
+
+        .bf-countdown-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--gold-bright);
+        }
+
+        .bf-countdown-label {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            margin-top: 0.15rem;
+            color: var(--gold-bright);
+            opacity: 0.9;
+        }
+
+        /* BLACK FRIDAY FREE SHIPPING BADGE */
+        .bf-free-shipping {
+            background: linear-gradient(135deg, var(--gold-bright) 0%, #FFD700 100%);
+            color: var(--black-friday);
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            margin: 1rem 0;
+            border: 2px solid var(--gold-bright);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            animation: bfShimmer 3s infinite;
+        }
+
+        .bf-free-shipping::before {
+            content: '🚚 ';
+        }
+
+
+        /* CART FREE SHIPPING NOTICE */
+        .cart-free-shipping {
+            background: linear-gradient(135deg, var(--gold-bright) 0%, #FFD700 100%);
+            color: var(--black-friday);
+            padding: 0.6rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            border: 2px solid var(--gold-bright);
+        }
+
+        .cart-free-shipping::before {
+            content: '🚚 ';
+        }
+
         @media (max-width: 768px) {
             .bf-banner {
                 font-size: 0.75rem;
@@ -902,6 +989,57 @@
                 font-size: 0.6rem;
                 bottom: 1rem;
                 right: 1rem;
+            }
+
+            .bf-countdown {
+                padding: 0.8rem 1rem;
+                margin: 1rem 0;
+            }
+
+            .bf-countdown-title {
+                font-size: 0.75rem;
+            }
+
+            .bf-countdown-timer {
+                gap: 0.5rem;
+            }
+
+            .bf-countdown-item {
+                min-width: 40px;
+            }
+
+            .bf-countdown-number {
+                font-size: 1.4rem;
+            }
+
+            .bf-countdown-label {
+                font-size: 0.6rem;
+            }
+
+            .bf-free-shipping {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .bf-countdown {
+                max-width: 100%;
+                padding: 0.6rem 0.8rem;
+            }
+
+            .bf-countdown-title {
+                font-size: 0.7rem;
+            }
+
+            .bf-countdown-number {
+                font-size: 1rem;
+            }
+
+            .bf-countdown-label {
+                font-size: 0.5rem;
+            }
+
+            .bf-countdown-timer {
+                gap: 0.5rem;
             }
         }
 
@@ -1535,59 +1673,143 @@
             font-size: 1.1rem;
         }
 
-        /* TESTIMONIALS SECTION */
+        /* TESTIMONIALS SECTION - COMPACT DESIGN */
         .testimonials-section {
-            background: var(--off-white);
-            padding: 8rem 5%;
+            background: linear-gradient(180deg, var(--off-white) 0%, #faf9f7 100%);
+            padding: 4rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-section .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .testimonials-section .section-header p {
+            font-size: 1rem;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
         }
 
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .testimonial-card {
             background: var(--white);
-            padding: 3rem;
-            border-radius: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            padding: 1.8rem;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .testimonial-card:hover::before {
+            transform: scaleX(1);
         }
 
         .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.12);
             border-color: var(--gold);
+        }
+
+        .testimonial-card.fade-out {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .testimonial-card.fade-in {
+            animation: fadeInTestimonial 0.5s ease forwards;
+        }
+
+        @keyframes fadeInTestimonial {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .stars {
             color: var(--gold);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.2rem;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1rem;
+            text-shadow: 0 1px 3px rgba(212, 175, 55, 0.2);
         }
 
         .testimonial-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
+            font-size: 0.95rem;
+            line-height: 1.7;
             color: var(--text-medium);
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
             font-style: italic;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -0.3rem;
+            font-size: 2.2rem;
+            color: var(--gold);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.9rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--grey-light);
         }
 
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 42px;
+            height: 42px;
             background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
             border-radius: 50%;
             display: flex;
@@ -1595,18 +1817,26 @@
             justify-content: center;
             color: var(--white);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            box-shadow: 0 3px 8px rgba(212, 175, 55, 0.25);
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            flex: 1;
         }
 
         .author-info h4 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-dark);
             margin-bottom: 0.2rem;
+            font-weight: 600;
         }
 
         .author-info p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-light);
+            font-style: normal;
         }
 
         /* PRODUCT SECTION */
@@ -1712,27 +1942,27 @@
         }
 
         .product-card .product-info h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
             color: var(--text-dark);
             line-height: 1.2;
         }
 
         .product-card .product-rating {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .product-card .product-description {
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            line-height: 1.5;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
             color: var(--text-medium);
         }
 
         .product-card .price-section {
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 15px;
+            padding: 0.8rem;
+            margin-bottom: 0.8rem;
+            border-radius: 12px;
         }
 
         .product-card .price-main {
@@ -1740,16 +1970,16 @@
         }
 
         .product-card .current-price {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
 
         .product-card .old-price {
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .product-card .savings {
-            font-size: 0.7rem;
-            padding: 0.15rem 0.6rem;
+            font-size: 0.65rem;
+            padding: 0.12rem 0.5rem;
         }
 
         .product-card .price-per {
@@ -1757,34 +1987,35 @@
         }
 
         .product-card .product-options {
-            margin-bottom: 1rem;
-        }
-
-        .product-card .option-group {
             margin-bottom: 0.8rem;
         }
 
+        .product-card .option-group {
+            margin-bottom: 0.6rem;
+        }
+
         .product-card .option-group label {
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.4rem;
             font-weight: 600;
         }
 
         .product-card .variant-options {
             display: grid;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
 
         .product-card .variant-option {
-            padding: 0.7rem;
+            padding: 0.6rem;
         }
 
         .product-card .variant-info h4 {
             font-size: 0.9rem;
+            margin-bottom: 0.15rem;
         }
 
         .product-card .variant-info p {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
 
         .product-card .variant-price {
@@ -1797,8 +2028,8 @@
 
         .product-card .add-to-cart-btn {
             width: 100%;
-            padding: 0.9rem;
-            font-size: 0.95rem;
+            padding: 0.75rem;
+            font-size: 0.9rem;
             margin-top: auto;
         }
 
@@ -2023,6 +2254,28 @@
             border-color: var(--gold);
             background: rgba(201, 169, 97, 0.1);
             box-shadow: 0 5px 20px rgba(201, 169, 97, 0.2);
+        }
+
+        /* BLACK FRIDAY indicator voor 3 Flessen varianten */
+        .variant-option.bf-special {
+            position: relative;
+            border-color: var(--gold) !important;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.05) 0%, rgba(201, 169, 97, 0.1) 100%);
+        }
+
+        .variant-option.bf-special::before {
+            content: 'BLACK FRIDAY';
+            position: absolute;
+            top: -8px;
+            right: 8px;
+            background: var(--black-friday);
+            color: var(--gold-bright);
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .variant-info h4 {
@@ -2655,6 +2908,38 @@
             width: 100%;
         }
 
+        .discount-code-box {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: var(--white);
+        }
+
+        .discount-code-label {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .discount-code {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 0.2rem;
+            color: var(--white);
+            margin: 1rem 0;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .discount-amount {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
         /* Subtle Language Switcher */
         .lang-switcher {
             position: fixed;
@@ -2709,19 +2994,6 @@
     </style>
 </head>
 <body>
-    <!-- BLACK FRIDAY BANNER -->
-    <div class="bf-banner">
-        <div class="bf-banner-text">
-            <span>🔥</span>
-            <span>BLACK FRIDAY</span>
-            <span>|</span>
-            <span>Tot 30% Korting</span>
-            <span>|</span>
-            <span>Combineer & Bespaar</span>
-            <span>|</span>
-            <span>Tijdelijk</span>
-        </div>
-    </div>
 
     <!-- Subtle Language Switcher -->
     <div class="lang-switcher">
@@ -2766,6 +3038,9 @@
                         </div>
                     </div>
                     <div class="cart-footer" id="cartFooter" style="display: none;">
+                        <div class="cart-free-shipping">
+                            GRATIS VERZENDING tijdens Black Friday!
+                        </div>
                         <div class="cart-total">
                             <span class="cart-total-label" data-i18n="cart.total">Totaal:</span>
                             <span class="cart-total-price" id="cartTotalPrice">€0,00</span>
@@ -2808,7 +3083,7 @@
                 <a href="#benefits" class="btn btn-secondary" data-i18n="hero.cta2">Bekijk de Magie</a>
                 </div>
             <div class="trust-badges">
-                <span class="trust-badge" data-i18n="hero.badge1">Gratis verzending €40+</span>
+                <span class="trust-badge" data-i18n="hero.badge1">🚚 GRATIS VERZENDING Black Friday</span>
                 <span class="trust-badge" data-i18n="hero.badge2">Morgen in huis</span>
                 <span class="trust-badge" data-i18n="hero.badge3">Black Friday Garantie: 30 dagen retour</span>
                 </div>
@@ -3020,12 +3295,13 @@
     <!-- TESTIMONIALS SECTION -->
     <section class="testimonials-section scroll-reveal" id="testimonials">
         <div class="section-header">
-            <span class="section-badge">Social Proof</span>
+            <span class="section-badge">Echte Ervaringen</span>
             <h2>10.000+ Mensen Gingen Je Voor</h2>
-            <p>Dit is wat echte VFL Gold gebruikers ervaren.</p>
+            <p>Dit is wat echte VFL Gold gebruikers dagelijks ervaren.</p>
         </div>
 
-        <div class="testimonials-grid">
+        <div class="testimonials-grid" id="testimonialsGrid">
+            <!-- Testimonials worden dynamisch geladen via JavaScript -->
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
                 <p class="testimonial-text">
@@ -3038,7 +3314,7 @@
                     <div class="author-info">
                         <h4>Sophie Vermeulen</h4>
                         <p>CEO, Amsterdam</p>
-            </div>
+                    </div>
                 </div>
             </div>
 
@@ -3054,7 +3330,7 @@
                     <div class="author-info">
                         <h4>Mark de Jong</h4>
                         <p>Pro Atleet, Rotterdam</p>
-            </div>
+                    </div>
                 </div>
             </div>
 
@@ -3112,7 +3388,6 @@
                                 <span class="old-price">€74,95</span>
                                 <span class="savings">Bespaar €10</span>
                             </div>
-                            <p class="price-per">€2,17 per 10ml</p>
                         </div>
                         <div class="product-options">
                             <div class="option-group">
@@ -3132,7 +3407,7 @@
                                         </div>
                                         <div class="variant-price">€124,99</div>
                                     </div>
-                                    <div class="variant-option" data-price="179.99" data-shopify-variant-id="52133947900170">
+                                    <div class="variant-option bf-special" data-price="179.99" data-shopify-variant-id="52133947900170">
                                         <div class="variant-info">
                                             <h4>3 Flessen</h4>
                                             <p>Beste waarde</p>
@@ -3150,27 +3425,26 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="add-to-cart-btn">
+                        <button type="button" class="add-to-cart-btn" id="bottleAddToCart">
                             🛒 Voeg Toe — €64,95
                         </button>
                     </div>
                 </div>
 
                 <!-- Product 2: Biofel -->
-                <!-- Biofel product: Prices updated to €49.95 (1 Fles) and €139.95 (3 Flessen) -->
                 <div class="product-card bf-product" data-product="biofel" data-image="biofelnieuw.png">
                     <div class="product-image-wrapper">
                         <div class="product-image" data-bg="biofelnieuw.png" style="background-image: url('biofelnieuw.png');"></div>
                         <div class="product-badge">✨ Nieuw</div>
                         <div class="bf-product-badge">BLACK FRIDAY</div>
                     </div>
-                <div class="product-info">
+                    <div class="product-info">
                         <h2>Biofel</h2>
                         <div class="product-rating">
                             <span class="rating-stars">★★★★★</span>
                             <span class="rating-text">(534 reviews)</span>
                         </div>
-                    <p class="product-description">
+                        <p class="product-description">
                             Natuurlijke bio-actieve blend voor dagelijkse energie en balans. 
                             Geselecteerde ingrediënten voor optimale vitaliteit.
                         </p>
@@ -3180,32 +3454,31 @@
                                 <span class="old-price">€74,95</span>
                                 <span class="savings">Bespaar €10</span>
                             </div>
-                            <p class="price-per">€2,17 per dag</p>
                         </div>
-                    <div class="product-options">
+                        <div class="product-options">
                             <div class="option-group">
                                 <label>Pakket:</label>
                                 <div class="variant-options">
-                                    <div class="variant-option selected" data-price="64.95" data-shopify-variant-id="52133922767114">
+                                    <div class="variant-option selected" data-price="64.95" data-shopify-variant-id="52138659807498">
                                         <div class="variant-info">
                                             <h4>1 Fles</h4>
                                             <p>Standaard</p>
                                         </div>
                                         <div class="variant-price">€64,95</div>
                                     </div>
-                                    <div class="variant-option" data-price="124.99" data-shopify-variant-id="52133948064010">
+                                    <div class="variant-option" data-price="124.95" data-shopify-variant-id="52138694836490">
                                         <div class="variant-info">
                                             <h4>2 Flessen</h4>
                                             <p>Combineer & Bespaar</p>
                                         </div>
-                                        <div class="variant-price">€124,99</div>
+                                        <div class="variant-price">€124,95</div>
                                     </div>
-                                    <div class="variant-option" data-price="179.99" data-shopify-variant-id="52133948096778">
+                                    <div class="variant-option bf-special" data-price="179.95" data-shopify-variant-id="52138694869258">
                                         <div class="variant-info">
                                             <h4>3 Flessen</h4>
                                             <p>Beste keuze</p>
                                         </div>
-                                        <div class="variant-price">€179,99</div>
+                                        <div class="variant-price">€179,95</div>
                                     </div>
                                 </div>
                             </div>
@@ -3218,7 +3491,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="add-to-cart-btn">
+                        <button type="button" class="add-to-cart-btn" id="biofelAddToCart">
                             🛒 Voeg Toe — €64,95
                         </button>
                     </div>
@@ -3243,44 +3516,69 @@
                         </p>
                         <div class="price-section">
                             <div class="price-main">
-                                <span class="current-price" id="sachetPrice">€22,50</span>
+                                <span class="current-price" id="sachetPrice">€13,50</span>
                                 <span class="old-price" id="sachetOldPrice" style="display: none;"></span>
                                 <span class="savings" id="sachetSavings" style="display: none;"></span>
                             </div>
-                            <p class="price-per" id="sachetPricePer">€7,50 per stuk (min. 3)</p>
                         </div>
                         <div class="product-options">
                             <div class="option-group">
                                 <label>Aantal Sachets:</label>
-                                <select id="sachetQuantity" class="sachet-select" style="width: 100%; padding: 1rem; border: 2px solid var(--grey); border-radius: 10px; font-size: 1rem; margin-bottom: 1rem; background: var(--white); cursor: pointer;">
-                                    <option value="3" data-price="22.50" data-shopify-variant-id="52133948195082">3 stuks — €22,50</option>
-                                    <option value="5" data-price="37.50" data-shopify-variant-id="52133948260618">5 stuks — €37,50</option>
-                                    <option value="10" data-price="67.50" data-shopify-variant-id="52133948326154">10 stuks — €67,50 (10% korting)</option>
-                                    <option value="15" data-price="101.25" data-shopify-variant-id="52133948391690">15 stuks — €101,25 (10% korting)</option>
-                                    <option value="20" data-price="135.00" data-shopify-variant-id="52133948424458">20 stuks — €135,00 (10% korting)</option>
-                                    <option value="30" data-price="202.50" data-shopify-variant-id="52133948489994">30 stuks — €202,50 (10% korting)</option>
-                                </select>
-                            </div>
-                            <div class="option-group">
-                                <label>Aantal pakketten:</label>
-                                <div class="quantity-selector">
-                                    <button class="quantity-btn">−</button>
-                                    <span class="quantity-value">1</span>
-                                    <button class="quantity-btn">+</button>
+                                <div class="variant-options">
+                                    <div class="variant-option selected" data-price="13.50" data-shopify-variant-id="52138834166026" data-quantity="3">
+                                        <div class="variant-info">
+                                            <h4>3 stuks</h4>
+                                            <p>Standaard</p>
+                                        </div>
+                                        <div class="variant-price">€13,50</div>
+                                    </div>
+                                    <div class="variant-option" data-price="20.25" data-shopify-variant-id="52138834198794" data-quantity="5">
+                                        <div class="variant-info">
+                                            <h4>5 stuks</h4>
+                                            <p>10% korting</p>
+                                        </div>
+                                        <div class="variant-price">€20,25</div>
+                                    </div>
+                                    <div class="variant-option" data-price="31.50" data-shopify-variant-id="52138834231562" data-quantity="10">
+                                        <div class="variant-info">
+                                            <h4>10 stuks</h4>
+                                            <p>30% korting</p>
+                                        </div>
+                                        <div class="variant-price">€31,50</div>
+                                    </div>
+                                    <div class="variant-option" data-price="63.00" data-shopify-variant-id="52138834264330" data-quantity="20">
+                                        <div class="variant-info">
+                                            <h4>20 stuks</h4>
+                                            <p>30% korting</p>
+                                        </div>
+                                        <div class="variant-price">€63,00</div>
+                                    </div>
+                                    <div class="variant-option" data-price="94.50" data-shopify-variant-id="52138834297098" data-quantity="30">
+                                        <div class="variant-info">
+                                            <h4>30 stuks</h4>
+                                            <p>30% korting</p>
+                                        </div>
+                                        <div class="variant-price">€94,50</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <button class="add-to-cart-btn" id="sachetAddToCart">
-                            🛒 Voeg Toe — <span id="sachetButtonPrice">€22,50</span>
+                        <button class="add-to-cart-btn" id="sachetAddToCart" style="margin-top: 0.5rem;">
+                            🛒 Voeg Toe — <span id="sachetButtonPrice">€13,50</span>
                         </button>
                     </div>
                 </div>
-                    </div>
-                    
+            </div>
+
+            <!-- FREE SHIPPING BADGE -->
+            <div class="bf-free-shipping">
+                GRATIS VERZENDING - Geen minimum bestelbedrag!
+            </div>
+
             <div class="product-guarantees" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--grey);">
                 <div class="guarantee-item">
                     <div class="guarantee-icon">🚚</div>
-                    <p>Gratis verzending<br>vanaf €40</p>
+                    <p>GRATIS VERZENDING<br>bij elke bestelling</p>
                     </div>
                 <div class="guarantee-item">
                     <div class="guarantee-icon">⚡</div>
@@ -3372,7 +3670,7 @@
                 </button>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        We bieden gratis verzending vanaf €40 bestellingen. Bestel voor 22:00 
+                        Tijdens Black Friday bieden wij GRATIS VERZENDING op alle bestellingen (geen minimum bedrag)! Bestel voor 22:00 
                         en je pakket wordt dezelfde dag nog verzonden (werkdagen). Betalen kan 
                         veilig via iDEAL, creditcard, PayPal, Bancontact en Apple Pay. Track & 
                         Trace wordt automatisch gemaild.
@@ -3462,12 +3760,23 @@
     <div class="exit-popup" id="exitPopup">
         <div class="exit-content">
             <button class="exit-close" id="exitClose">×</button>
-            <h2>Wacht! Krijg 10% korting</h2>
-            <p>Op je eerste bestelling + gratis verzending</p>
-            <form id="exitForm">
-                <input type="email" placeholder="Jouw email" required>
-                <button type="submit" class="btn btn-primary">Claim Korting</button>
-            </form>
+            <div id="exitEmailForm">
+                <h2>Wacht! Krijg €5 korting</h2>
+                <p>Laat je email achter en ontvang direct je kortingscode</p>
+                <form id="exitForm">
+                    <input type="email" placeholder="Jouw email" required>
+                    <button type="submit" class="btn btn-primary">Claim Korting</button>
+                </form>
+            </div>
+            <div id="exitCodeDisplay" style="display: none;">
+                <h2>🎉 Je kortingscode!</h2>
+                <div class="discount-code-box">
+                    <p class="discount-code-label">Gebruik deze code bij het uitchecken:</p>
+                    <div class="discount-code">BLCKFRIDAY</div>
+                    <p class="discount-amount">€5 korting op je bestelling</p>
+                </div>
+                <button class="btn btn-primary" onclick="document.getElementById('exitPopup').classList.remove('active');">Bedankt!</button>
+            </div>
         </div>
     </div>
 
@@ -3662,6 +3971,11 @@
             const addBtn = card.querySelector('.add-to-cart-btn');
             const productHandle = card.getAttribute('data-product');
             
+            // Skip sachets - heeft eigen handler
+            if (productHandle === 'sachets' || addBtn && addBtn.id === 'sachetAddToCart') {
+                return;
+            }
+            
             // Debug: check if elements are found
             if (!addBtn) {
                 console.error(`Add button not found for product card ${index}`);
@@ -3790,79 +4104,6 @@
             initProductCards();
         }
 
-        // ===== SACHETS ADD TO CART =====
-        (function() {
-            const sachetAddToCartBtn = document.getElementById('sachetAddToCart');
-            const sachetSelect = document.getElementById('sachetQuantity');
-            const sachetCard = document.querySelector('[data-product="sachets"]');
-            
-            if (sachetAddToCartBtn && sachetSelect && sachetCard) {
-                sachetAddToCartBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    const selectedOption = sachetSelect.options[sachetSelect.selectedIndex];
-                    const quantity = parseInt(sachetSelect.value);
-                    const price = parseFloat(selectedOption.getAttribute('data-price') || '22.50');
-                    const shopifyVariantId = selectedOption.getAttribute('data-shopify-variant-id');
-                    const productName = sachetCard.querySelector('h2').textContent.trim();
-                    const productImageUrl = sachetCard.getAttribute('data-image') || '';
-                    const productImage = productImageUrl ? `url('${productImageUrl}')` : 'url("")';
-                    
-                    // Get package quantity
-                    const packageQtySelector = sachetCard.querySelector('.quantity-selector .quantity-value');
-                    const packageQuantity = packageQtySelector ? parseInt(packageQtySelector.textContent) : 1;
-                    
-                    // Add to cart array
-                    if (!window.cartItems || !Array.isArray(window.cartItems)) {
-                        window.cartItems = [];
-                    }
-                    
-                    // Add item with quantity (total sachets = quantity * packageQuantity)
-                    const totalSachets = quantity * packageQuantity;
-                    const totalPrice = price * packageQuantity;
-                    
-                    window.cartItems.push({
-                        id: `sachets-${Date.now()}`,
-                        name: productName,
-                        variant: `${quantity} stuks`,
-                        price: totalPrice,
-                        image: productImage,
-                        quantity: packageQuantity,
-                        shopifyVariantId: shopifyVariantId || null
-                    });
-                    
-                    // Update cart count
-                    const cartCount = document.getElementById('cartCount');
-                    if (cartCount) {
-                        const currentCount = window.cartItems.length;
-                        cartCount.textContent = currentCount;
-                        cartCount.style.display = currentCount > 0 ? 'flex' : 'none';
-                    }
-                    
-                    // Update cart display
-                    if (window.updateCartDisplay) {
-                        window.updateCartDisplay();
-                    }
-                    
-                    // Animate cart button and open dropdown
-                    const cartBtn = document.getElementById('cartBtn');
-                    const cartDropdown = document.getElementById('cartDropdown');
-                    if (cartBtn) {
-                        cartBtn.style.transform = 'scale(1.2)';
-                        setTimeout(() => {
-                            cartBtn.style.transform = 'scale(1)';
-                        }, 300);
-                    }
-                    
-                    // Open cart dropdown
-                    if (cartDropdown) {
-                        cartDropdown.classList.add('active');
-                    }
-                });
-            }
-        })();
-
         // ===== CART DROPDOWN FUNCTIONALITY =====
         if (!window.cartItems || !Array.isArray(window.cartItems)) {
             window.cartItems = [];
@@ -3984,8 +4225,9 @@
         
         async function createShopifyCheckout(items) {
             // Filter items that have Shopify variant IDs (exclude placeholders)
+            // Support both shopifyVariantId and variantId for compatibility
             const validItems = items.filter(item => {
-                const id = item.shopifyVariantId;
+                const id = item.shopifyVariantId || item.variantId;
                 return id && 
                        id !== 'VUL_HIER_VARIANT_ID_IN' &&
                        id !== 'bf-2-bottles' &&
@@ -3996,7 +4238,7 @@
             
             if (validItems.length === 0) {
                 const invalidItems = items.filter(item => {
-                    const id = item.shopifyVariantId;
+                    const id = item.shopifyVariantId || item.variantId;
                     return !id || id.startsWith('VUL_') || id === 'bf-2-bottles' || id === 'bf-2-biofel' || !/^\d+$/.test(id);
                 });
                 
@@ -4010,7 +4252,7 @@
             // Group items by variant ID and sum quantities
             const itemsByVariant = {};
             validItems.forEach(item => {
-                const variantId = item.shopifyVariantId;
+                const variantId = item.shopifyVariantId || item.variantId;
                 if (!itemsByVariant[variantId]) {
                     itemsByVariant[variantId] = 0;
                 }
@@ -4045,7 +4287,6 @@
                 }
             `;
 
-            console.log('Creating Shopify cart with items:', itemsByVariant);
 
             const response = await fetch(`https://${SHOPIFY_STORE}/api/2024-01/graphql.json`, {
                 method: 'POST',
@@ -4081,8 +4322,6 @@
                 // Create cart via Storefront API
                 const cart = await createShopifyCheckout(window.cartItems);
                 
-                console.log('Cart created:', cart);
-                console.log('Redirecting to:', cart.checkoutUrl);
                 
                 // Redirect to Shopify checkout page
                 window.location.href = cart.checkoutUrl;
@@ -4163,8 +4402,10 @@
         let exitShown = false;
 
         // Check if user is leaving
+        // Only show popup if user hasn't already submitted email and received code
         document.addEventListener('mouseleave', (e) => {
-            if (e.clientY <= 0 && !exitShown && window.scrollY > 500) {
+            const hasSubmittedEmail = localStorage.getItem('exitPopupShown');
+            if (e.clientY <= 0 && !exitShown && window.scrollY > 500 && !hasSubmittedEmail) {
                 exitPopup.classList.add('active');
                 exitShown = true;
             }
@@ -4216,14 +4457,12 @@
                     const errorData = await response.json();
                     // If customer already exists (422), that's okay
                     if (response.status === 422 && errorData.errors && errorData.errors.email) {
-                        console.log('Customer already exists:', email);
                         return { success: true, message: 'already_exists' };
                     }
                     throw new Error(`Shopify API error: ${response.status}`);
                 }
 
                 const data = await response.json();
-                console.log('Customer added to Shopify:', data.customer.email);
                 return { success: true, message: 'added' };
             } catch (error) {
                 console.error('Error adding email to Shopify:', error);
@@ -4238,6 +4477,8 @@
                 const emailInput = exitForm.querySelector('input[type="email"]');
                 const email = emailInput.value.trim();
                 const submitBtn = exitForm.querySelector('button[type="submit"]');
+                const emailFormDiv = document.getElementById('exitEmailForm');
+                const codeDisplayDiv = document.getElementById('exitCodeDisplay');
                 
                 if (!email) {
                     alert('Voer een geldig email adres in.');
@@ -4251,16 +4492,24 @@
                 // Add email to Shopify
                 const result = await addEmailToShopify(email);
 
-                if (result.success) {
-                    alert(`Bedankt! Je kortingscode is: FIRST10\n\nJe email (${email}) is toegevoegd aan onze nieuwsbrief.`);
-                    exitPopup.classList.remove('active');
-                    emailInput.value = ''; // Clear input
+                if (result.success || result.message === 'already_exists') {
+                    // Hide email form and show discount code
+                    emailFormDiv.style.display = 'none';
+                    codeDisplayDiv.style.display = 'block';
+                    
+                    // Store that user has seen the code (prevent showing popup again)
+                    localStorage.setItem('exitPopupShown', 'true');
+                    localStorage.setItem('exitPopupEmail', email);
                 } else {
-                    alert(`Er is een fout opgetreden. Probeer het later opnieuw.\n\nJe kortingscode is: FIRST10`);
-                    console.error('Failed to add email:', result.error);
+                    // Even if Shopify fails, show the code (user provided email)
+                    emailFormDiv.style.display = 'none';
+                    codeDisplayDiv.style.display = 'block';
+                    localStorage.setItem('exitPopupShown', 'true');
+                    localStorage.setItem('exitPopupEmail', email);
+                    console.error('Failed to add email to Shopify:', result.error);
                 }
 
-                // Re-enable button
+                // Re-enable button (though form is hidden now)
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Claim Korting';
             });
@@ -4288,6 +4537,339 @@
                 () => `${rand(emojis)} ${rand(cities)}: 5-⭐ reviews blijven binnenkomen`
             ];
             return templates[randint(0,templates.length-1)]();
+        }
+
+        // ===== ROTATING TESTIMONIALS - 40 DIVERSE REVIEWS =====
+        const testimonialsData = [
+            {
+                text: "Mijn hersteltijd is gehalveerd sinds ik VFL Gold gebruik. Als professioneel atleet heb ik veel supplementen geprobeerd, maar dit is echt anders. Train nu met meer intensiteit dan ooit!",
+                author: "Mark de Jong",
+                role: "Pro Atleet, Rotterdam",
+                avatar: "MJ"
+            },
+            {
+                text: "Was skeptisch, maar VFL Gold heeft me volledig overtuigd. De focus en mentale helderheid die ik nu ervaar is ongelooflijk. Perfect voor lange werkdagen en intense studiesessies.",
+                author: "Lisa Koopman",
+                role: "Student, Utrecht",
+                avatar: "LK"
+            },
+            {
+                text: "Drie kinderen thuis en altijd uitgeput. Tot VFL Gold. Nu heb ik weer energie voor alles en mijn gezin merkt het verschil ook!",
+                author: "Emma van der Berg",
+                role: "Moeder, Den Haag",
+                avatar: "EB"
+            },
+            {
+                text: "Lange diensten in de zorg waren zwaar. VFL Gold helpt me scherp te blijven zonder uitgeput te raken. Mijn collega's vragen wat mijn geheim is!",
+                author: "Ahmed Hassan",
+                role: "Verpleegkundige, Eindhoven",
+                avatar: "AH"
+            },
+            {
+                text: "Voel me 10 jaar jonger sinds ik VFL Gold gebruik. Als 65-plusser wilde ik vitaal blijven en nu geniet ik volop van mijn pensioen met volle energie!",
+                author: "Mila Jansen",
+                role: "Pensionado, Breda",
+                avatar: "MJ"
+            },
+            {
+                text: "Zes keer per week trainen vraagt veel van je lichaam. VFL Gold is essentieel geworden - spierherstel is veel sneller en geen spierpijn meer. Top product!",
+                author: "Daan Smit",
+                role: "Fitness Coach, Utrecht",
+                avatar: "DS"
+            },
+            {
+                text: "Brain fog en concentratieproblemen waren mijn dagelijkse realiteit. Sinds VFL Gold is mijn mentale helderheid enorm verbeterd en kan ik me weer goed focussen!",
+                author: "Lars van Dijk",
+                role: "Software Developer, Rotterdam",
+                avatar: "LD"
+            },
+            {
+                text: "Geneeskunde studeren betekent veel informatie verwerken. VFL Gold helpt me langer geconcentreerd te blijven en beter te onthouden. Echte game-changer!",
+                author: "Nina Peters",
+                role: "Geneeskunde Student, Leiden",
+                avatar: "NP"
+            },
+            {
+                text: "Veganist zijn betekent soms tekorten. VFL Gold voorziet me van alles wat ik nodig heb en ik voel me gezonder dan ooit!",
+                author: "Sam Verhoeven",
+                role: "Yoga Instructeur, Antwerpen",
+                avatar: "SV"
+            },
+            {
+                text: "Na 2 weken voel ik me letterlijk herboren. Mijn energieniveau is door het dak, slaap beter en ben mentaal veel scherper. Dit is geen gewoon supplement.",
+                author: "Sophie Vermeulen",
+                role: "Lerares, Amsterdam",
+                avatar: "SV"
+            },
+            {
+                text: "Lange dagen en nachten in de keuken zijn zwaar. VFL Gold houdt me energiek en gefocust. Mijn collega's zijn jaloers op mijn energie!",
+                author: "Tom Bakker",
+                role: "Chef-kok, Haarlem",
+                avatar: "TB"
+            },
+            {
+                text: "Vermoeidheid na school was normaal geworden. Sinds VFL Gold heb ik energie om ook 's avonds nog dingen te doen. Geweldig!",
+                author: "Joris van der Laan",
+                role: "Leraar, Leiden",
+                avatar: "JL"
+            },
+            {
+                text: "Nachtdiensten draaien is zwaar. VFL Gold helpt me alert te blijven en mijn energie op peil te houden. Echt een verschil!",
+                author: "Tess de Wit",
+                role: "Verpleegkundige, Rotterdam",
+                avatar: "TW"
+            },
+            {
+                text: "Concentratie tijdens examens was altijd een probleem. VFL Gold heeft mijn focus enorm verbeterd en mijn cijfers zijn omhoog gegaan!",
+                author: "Ruben Jansen",
+                role: "Student, Groningen",
+                avatar: "RJ"
+            },
+            {
+                text: "Geen energie meer sinds de baby er is. VFL Gold geeft me de kracht om alles te doen wat ik moet doen. Mijn man merkt het verschil!",
+                author: "Eva Mulder",
+                role: "Moeder, Eindhoven",
+                avatar: "EM"
+            },
+            {
+                text: "Veel bewegen als fysiotherapeut vraagt veel energie. VFL Gold helpt me fit te blijven zodat ik mijn cliënten beter kan helpen. Top product!",
+                author: "Noah van den Berg",
+                role: "Fysiotherapeut, Den Haag",
+                avatar: "NB"
+            },
+            {
+                text: "Psychologie studeren betekent veel lezen en studeren. VFL Gold helpt me langer geconcentreerd te blijven en mijn geheugen is ook beter geworden!",
+                author: "Julia Smit",
+                role: "Student, Maastricht",
+                avatar: "JS"
+            },
+            {
+                text: "De hele dag lopen als postbode is zwaar. VFL Gold geeft me de energie om mijn ronde te voltooien zonder uitgeput te raken. Perfect!",
+                author: "Lars de Vries",
+                role: "Postbode, Utrecht",
+                avatar: "LV"
+            },
+            {
+                text: "Twee tieners thuis en altijd vermoeid. Sinds VFL Gold voel ik me weer energiek en vitaal. Mijn kinderen merken het ook!",
+                author: "Mila Bakker",
+                role: "Moeder, Haarlem",
+                avatar: "MB"
+            },
+            {
+                text: "Vermoeidheid na school was normaal. VFL Gold geeft me energie om ook 's avonds nog dingen te doen met mijn gezin.",
+                author: "Nina van Dijk",
+                role: "Lerares, Breda",
+                avatar: "ND"
+            },
+            {
+                text: "Veel informatie onthouden voor geneeskunde is zwaar. VFL Gold helpt me informatie beter op te slaan en terug te halen. Mijn examens gaan veel beter!",
+                author: "Sam de Jong",
+                role: "Geneeskunde Student, Nijmegen",
+                avatar: "SJ"
+            },
+            {
+                text: "De hele dag staan als kapper vraagt veel. VFL Gold houdt me energiek en gefocust. Mijn klanten merken dat ik meer energie heb!",
+                author: "Emma Jansen",
+                role: "Kapster, Amsterdam",
+                avatar: "EJ"
+            },
+            {
+                text: "Drie kinderen thuis en geen energie meer. VFL Gold geeft me de kracht om alles te doen. Mijn man zegt dat ik weer de oude ben!",
+                author: "Sophie Mulder",
+                role: "Moeder, Rotterdam",
+                avatar: "SM"
+            },
+            {
+                text: "Vermoeidheid tijdens colleges was normaal. Sinds VFL Gold kan ik me veel beter concentreren en onthouden wat er gezegd wordt.",
+                author: "Lisa van der Berg",
+                role: "Student, Utrecht",
+                avatar: "LB"
+            },
+            {
+                text: "Werken in een drukke afdeling vraagt veel. VFL Gold helpt me alert te blijven en mijn energie op peil te houden. Echt een verschil!",
+                author: "Ahmed de Vries",
+                role: "Verpleegkundige, Den Haag",
+                avatar: "AV"
+            },
+            {
+                text: "Vermoeidheid na school was mijn normaal. VFL Gold geeft me energie om ook 's avonds nog dingen te doen. Geweldig product!",
+                author: "Mark Smit",
+                role: "Leraar, Leiden",
+                avatar: "MS"
+            },
+            {
+                text: "Veel studeren voor examens is zwaar. VFL Gold helpt me langer geconcentreerd te blijven en beter te onthouden. Top!",
+                author: "Ruben Bakker",
+                role: "Student, Groningen",
+                avatar: "RB"
+            },
+            {
+                text: "De hele dag staan als kassamedewerker vraagt veel. VFL Gold houdt me energiek en gefocust. Mijn collega's vragen wat mijn geheim is!",
+                author: "Tess Jansen",
+                role: "Kassamedewerker, Eindhoven",
+                avatar: "TJ"
+            },
+            {
+                text: "Geen energie meer sinds de peuter er is. VFL Gold geeft me de kracht om alles te doen wat ik moet doen. Mijn gezin merkt het verschil!",
+                author: "Eva van Dijk",
+                role: "Moeder, Haarlem",
+                avatar: "ED"
+            },
+            {
+                text: "Concentratie tijdens colleges was moeilijk. VFL Gold heeft mijn focus enorm verbeterd en mijn cijfers zijn omhoog gegaan!",
+                author: "Noah Mulder",
+                role: "Student, Maastricht",
+                avatar: "NM"
+            },
+            {
+                text: "Wisselende diensten draaien is zwaar. VFL Gold helpt me mijn energie op peil te houden, ongeacht het tijdstip. Perfect!",
+                author: "Julia de Wit",
+                role: "Verpleegkundige, Rotterdam",
+                avatar: "JW"
+            },
+            {
+                text: "Vermoeidheid na school was normaal geworden. VFL Gold geeft me energie om ook 's avonds nog dingen te doen met mijn gezin.",
+                author: "Mila van der Laan",
+                role: "Lerares, Utrecht",
+                avatar: "ML"
+            },
+            {
+                text: "Veel informatie onthouden voor geneeskunde is zwaar. VFL Gold helpt me informatie beter op te slaan. Mijn examens gaan veel beter!",
+                author: "Sam Bakker",
+                role: "Geneeskunde Student, Nijmegen",
+                avatar: "SB"
+            },
+            {
+                text: "De hele dag staan als kapper vraagt veel energie. VFL Gold houdt me energiek en gefocust. Mijn klanten merken dat ik meer energie heb!",
+                author: "Emma Smit",
+                role: "Kapster, Amsterdam",
+                avatar: "ES"
+            },
+            {
+                text: "Twee kinderen thuis en altijd vermoeid. Sinds VFL Gold voel ik me weer energiek en vitaal. Mijn kinderen merken het ook!",
+                author: "Sophie Jansen",
+                role: "Moeder, Den Haag",
+                avatar: "SJ"
+            },
+            {
+                text: "Vermoeidheid tijdens colleges was mijn probleem. Sinds VFL Gold kan ik me veel beter concentreren en onthouden wat er gezegd wordt.",
+                author: "Lisa de Vries",
+                role: "Student, Utrecht",
+                avatar: "LV"
+            },
+            {
+                text: "Werken in een drukke afdeling vraagt veel van je. VFL Gold helpt me alert te blijven en mijn energie op peil te houden. Echt een verschil!",
+                author: "Ahmed Mulder",
+                role: "Verpleegkundige, Eindhoven",
+                avatar: "AM"
+            },
+            {
+                text: "Vermoeidheid na school was mijn normaal. VFL Gold geeft me energie om ook 's avonds nog dingen te doen. Geweldig product!",
+                author: "Mark van Dijk",
+                role: "Leraar, Leiden",
+                avatar: "MD"
+            },
+            {
+                text: "Veel studeren voor examens vraagt veel concentratie. VFL Gold helpt me langer geconcentreerd te blijven en beter te onthouden. Top!",
+                author: "Ruben Smit",
+                role: "Student, Groningen",
+                avatar: "RS"
+            },
+            {
+                text: "De hele dag staan als kassamedewerker is zwaar. VFL Gold houdt me energiek en gefocust. Mijn collega's vragen wat mijn geheim is!",
+                author: "Tess Bakker",
+                role: "Kassamedewerker, Rotterdam",
+                avatar: "TB"
+            },
+            {
+                text: "Geen energie meer sinds de baby er is. VFL Gold geeft me de kracht om alles te doen wat ik moet doen. Mijn man merkt het verschil!",
+                author: "Eva Jansen",
+                role: "Moeder, Haarlem",
+                avatar: "EJ"
+            },
+            {
+                text: "Concentratie tijdens colleges was altijd moeilijk. VFL Gold heeft mijn focus enorm verbeterd en mijn cijfers zijn omhoog gegaan!",
+                author: "Noah de Wit",
+                role: "Student, Maastricht",
+                avatar: "NW"
+            }
+        ];
+
+        function getRandomTestimonials(count = 3) {
+            const shuffled = [...testimonialsData].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function createTestimonialCard(testimonial) {
+            return `
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"${testimonial.text}"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">${testimonial.avatar}</div>
+                        <div class="author-info">
+                            <h4>${testimonial.author}</h4>
+                            <p>${testimonial.role}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateTestimonials() {
+            const grid = document.getElementById('testimonialsGrid');
+            if (!grid) return;
+
+            const cards = grid.querySelectorAll('.testimonial-card');
+            
+            // Fade out current cards
+            cards.forEach(card => {
+                card.classList.add('fade-out');
+            });
+
+            // After fade out, replace content
+            setTimeout(() => {
+                const newTestimonials = getRandomTestimonials(3);
+                grid.innerHTML = newTestimonials.map(createTestimonialCard).join('');
+                
+                // Fade in new cards
+                const newCards = grid.querySelectorAll('.testimonial-card');
+                newCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('fade-in');
+                    }, index * 100);
+                });
+            }, 300);
+        }
+
+        // Initialize testimonials rotation
+        function initTestimonialsRotation() {
+            const grid = document.getElementById('testimonialsGrid');
+            if (!grid) return;
+
+            // Set initial random testimonials
+            const initialTestimonials = getRandomTestimonials(3);
+            grid.innerHTML = initialTestimonials.map(createTestimonialCard).join('');
+            
+            // Add fade-in animation to initial cards
+            setTimeout(() => {
+                const cards = grid.querySelectorAll('.testimonial-card');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('fade-in');
+                    }, index * 100);
+                });
+            }, 100);
+
+            // Rotate testimonials every 10 seconds (10000ms)
+            setInterval(updateTestimonials, 10000);
+        }
+
+        // Start rotation when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTestimonialsRotation);
+        } else {
+            initTestimonialsRotation();
         }
 
         // ===== FULL WEBSITE TRANSLATIONS =====
@@ -4379,7 +4961,6 @@
                     if (['GB', 'US', 'CA', 'AU', 'NZ', 'IE', 'ZA'].includes(country)) return 'en';
                 }
             } catch (error) {
-                console.log('IP geolocation failed, using browser language');
             }
             
             // Fallback to browser language
@@ -4551,101 +5132,139 @@
         }
     </script>
 
-    <!-- BLACK FRIDAY POPUP MODAL -->
-    <div class="bf-popup-overlay" id="bfPopup">
-        <div class="bf-popup-modal">
-            <button class="bf-popup-close" id="bfPopupClose">&times;</button>
-            <h2 class="bf-popup-title">BLACK FRIDAY <span>DEAL</span> 🎁</h2>
-            <ul class="bf-popup-deals">
-                <li><strong>1 fles:</strong> €64,95</li>
-                <li><strong>2 flessen:</strong> €124,99 (<strong>combineer Biofel + Vitafer!</strong>)</li>
-                <li><strong>3 flessen:</strong> €179,99</li>
-                <li><strong>Sachets:</strong> vanaf €7,50 per stuk (min. 3) | <strong>10% korting</strong> vanaf 10 stuks</li>
-            </ul>
-            <p class="bf-popup-note"><strong>Deze deals zijn tijdelijk beschikbaar</strong></p>
-            <button class="bf-popup-cta" onclick="document.getElementById('bfPopup').classList.remove('show'); document.querySelector('#product').scrollIntoView({behavior: 'smooth'});">Shop Nu</button>
-        </div>
-    </div>
-
-    <!-- BLACK FRIDAY FLOATING BADGE -->
-    <div class="bf-floating-badge" onclick="document.querySelector('#product').scrollIntoView({behavior: 'smooth'});">
-        BLACK<br>FRIDAY
-    </div>
-
     <script>
-        // Black Friday Banner - Add padding to body
-        document.body.classList.add('has-bf-banner');
-
-        // Black Friday Popup Logic
+        // ===== SACHETS PRICE CALCULATION =====
         (function() {
-            const popup = document.getElementById('bfPopup');
-            const closeBtn = document.getElementById('bfPopupClose');
-            const popupShown = sessionStorage.getItem('bfPopupShown');
-
-            if (!popupShown) {
-                setTimeout(() => {
-                    popup.classList.add('show');
-                }, 2500);
-            }
-
-            function closePopup() {
-                popup.classList.remove('show');
-                sessionStorage.setItem('bfPopupShown', 'true');
-            }
-
-            if (closeBtn) {
-                closeBtn.addEventListener('click', closePopup);
-            }
-
-            popup.addEventListener('click', (e) => {
-                if (e.target === popup) {
-                    closePopup();
-                }
-            });
-        })();
-
-        // Sachets Price Calculation
-        (function() {
-            const sachetSelect = document.getElementById('sachetQuantity');
+            const sachetCard = document.querySelector('[data-product="sachets"]');
             const sachetPrice = document.getElementById('sachetPrice');
             const sachetOldPrice = document.getElementById('sachetOldPrice');
             const sachetSavings = document.getElementById('sachetSavings');
-            const sachetPricePer = document.getElementById('sachetPricePer');
             const sachetButtonPrice = document.getElementById('sachetButtonPrice');
 
-            function updateSachetPrice() {
-                const quantity = parseInt(sachetSelect.value);
-                const pricePerUnit = 7.50;
-                let totalPrice = quantity * pricePerUnit;
-                let discount = 0;
-                let hasDiscount = quantity >= 10;
+            function updateSachetPrice(selectedOption) {
+                if (!selectedOption) return;
+                
+                const price = parseFloat(selectedOption.getAttribute('data-price') || '13.50');
+                const quantity = parseInt(selectedOption.getAttribute('data-quantity') || '3');
+                const pricePerUnit = 4.50;
+                const hasDiscount = quantity >= 5;
 
-                if (hasDiscount) {
-                    discount = totalPrice * 0.1;
-                    totalPrice = totalPrice - discount;
-                }
-
-                // Update prices
-                sachetPrice.textContent = `€${totalPrice.toFixed(2).replace('.', ',')}`;
-                sachetButtonPrice.textContent = `€${totalPrice.toFixed(2).replace('.', ',')}`;
+                sachetPrice.textContent = `€${price.toFixed(2).replace('.', ',')}`;
+                sachetButtonPrice.textContent = `€${price.toFixed(2).replace('.', ',')}`;
 
                 if (hasDiscount) {
                     const originalPrice = quantity * pricePerUnit;
+                    const discount = originalPrice - price;
+                    const discountPercent = Math.round((discount / originalPrice) * 100);
                     sachetOldPrice.textContent = `€${originalPrice.toFixed(2).replace('.', ',')}`;
                     sachetOldPrice.style.display = 'inline';
                     sachetSavings.textContent = `Bespaar €${discount.toFixed(2).replace('.', ',')}`;
                     sachetSavings.style.display = 'inline';
-                    sachetPricePer.textContent = `€${(totalPrice / quantity).toFixed(2).replace('.', ',')} per stuk (10% korting)`;
                 } else {
                     sachetOldPrice.style.display = 'none';
                     sachetSavings.style.display = 'none';
-                    sachetPricePer.textContent = `€${pricePerUnit.toFixed(2).replace('.', ',')} per stuk (min. 3)`;
                 }
             }
 
-            if (sachetSelect) {
-                sachetSelect.addEventListener('change', updateSachetPrice);
-                updateSachetPrice(); // Initial calculation
+            if (sachetCard) {
+                const variantOptions = sachetCard.querySelectorAll('.variant-option');
+                const selectedOption = sachetCard.querySelector('.variant-option.selected');
+                
+                // Initialize with selected option
+                if (selectedOption) {
+                    updateSachetPrice(selectedOption);
+                }
+                
+                // Handle variant selection clicks
+                variantOptions.forEach(opt => {
+                    opt.addEventListener('click', () => {
+                        variantOptions.forEach(o => o.classList.remove('selected'));
+                        opt.classList.add('selected');
+                        updateSachetPrice(opt);
+                    });
+                });
+            }
+        })();
+
+        // ===== SACHETS ADD TO CART =====
+        (function() {
+            const sachetAddToCartBtn = document.getElementById('sachetAddToCart');
+            const sachetCard = document.querySelector('[data-product="sachets"]');
+            
+            if (sachetAddToCartBtn && sachetCard) {
+                sachetAddToCartBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const selectedOption = sachetCard.querySelector('.variant-option.selected');
+                    if (!selectedOption) {
+                        alert('Selecteer eerst een variant');
+                        return;
+                    }
+                    
+                    const quantity = parseInt(selectedOption.getAttribute('data-quantity') || '3');
+                    const price = parseFloat(selectedOption.getAttribute('data-price') || '13.50');
+                    const shopifyVariantId = selectedOption.getAttribute('data-shopify-variant-id');
+                    const productName = sachetCard.querySelector('h2').textContent.trim();
+                    
+                    // Add to cart array (niet direct naar checkout)
+                    if (!window.cartItems || !Array.isArray(window.cartItems)) {
+                        window.cartItems = [];
+                    }
+                    
+                    const productImageUrl = sachetCard.getAttribute('data-image') || '';
+                    const productImage = productImageUrl ? `url('${productImageUrl}')` : 'url("")';
+                    const variantName = `${quantity} stuks`;
+                    
+                    // Add item with quantity
+                    window.cartItems.push({
+                        id: `sachets-${Date.now()}`,
+                        name: productName,
+                        variant: variantName,
+                        price: price,
+                        image: productImage,
+                        quantity: 1,
+                        shopifyVariantId: shopifyVariantId || null
+                    });
+                    
+                    // Update cart count
+                    const cartCount = document.getElementById('cartCount');
+                    if (cartCount) {
+                        const currentCount = window.cartItems.length;
+                        cartCount.textContent = currentCount;
+                        cartCount.style.display = currentCount > 0 ? 'flex' : 'none';
+                    }
+                    
+                    // Update cart display
+                    if (window.updateCartDisplay) {
+                        window.updateCartDisplay();
+                    }
+                    
+                    // Animate cart button and open dropdown
+                    const cartBtn = document.getElementById('cartBtn');
+                    const cartDropdown = document.getElementById('cartDropdown');
+                    if (cartBtn) {
+                        cartBtn.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            cartBtn.style.transform = 'scale(1)';
+                        }, 300);
+                    }
+                    
+                    // Open cart dropdown
+                    if (cartDropdown) {
+                        cartDropdown.classList.add('active');
+                    }
+                    
+                    // Show success message
+                    const originalText = sachetAddToCartBtn.innerHTML;
+                    sachetAddToCartBtn.innerHTML = '✅ Toegevoegd!';
+                    sachetAddToCartBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        sachetAddToCartBtn.innerHTML = originalText;
+                        sachetAddToCartBtn.disabled = false;
+                    }, 2000);
+                });
             }
         })();
 
@@ -4673,8 +5292,6 @@
         })();
     </script>
 
-    <!-- Shopify Variant Verification Tool -->
-    <script src="verify-shopify-variants.js"></script>
 
 </body>
 </html>
